@@ -5,7 +5,7 @@ import styles from "./ToggleInput.scss";
 
 /* eslint-disable-next-line react/display-name */
 export const ToggleInput = memo(
-  forwardRef(({ className, label, description, disabled, ...rest }, ref) => {
+  forwardRef(({ className, label, description, disabled, labelClassName, ...rest }, ref) => {
     return (
       <label className={classNames(styles.toggleInput, { [styles.disabled]: disabled }, className)}>
         <input type="checkbox" disabled={disabled} ref={ref} {...rest} />
@@ -13,7 +13,7 @@ export const ToggleInput = memo(
           <div className={styles.button} />
         </div>
         {label && (
-          <div className={styles.labelContainer}>
+          <div className={classNames(styles.labelContainer, labelClassName)}>
             <p className={styles.label}>{label}</p>
             {description && <p className={styles.description}>{description}</p>}
           </div>
@@ -28,5 +28,6 @@ ToggleInput.propTypes = {
   description: PropTypes.node,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  labelClassName: PropTypes.string
 };

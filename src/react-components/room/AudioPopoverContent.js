@@ -35,7 +35,7 @@ export const AudioPopoverContent = ({
     <Column padding grow gap="lg" className={styles.audioToolbarPopover}>
       {(canVoiceChat && (
         <>
-          <p style={{ alignSelf: "start" }}>
+          <p className={styles.inputLabel} style={{ alignSelf: "start" }}>
             <FormattedMessage id="mic-setup-modal.microphone-text" defaultMessage="Microphone" />
           </p>
           {isAudioInputSelectAvailable && (
@@ -77,7 +77,7 @@ export const AudioPopoverContent = ({
         </div>
       )}
       <Divider />
-      <p style={{ alignSelf: "start" }}>
+      <p className={styles.inputLabel} style={{ alignSelf: "start" }}>
         <FormattedMessage id="mic-setup-modal.speakers-text" defaultMessage="Speakers" />
       </p>
       {permissionStatus === PermissionStatus.GRANTED && isAudioOutputSelectAvailable && (

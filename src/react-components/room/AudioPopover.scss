@@ -27,7 +27,7 @@
 
   width: 24px;
   height: 24px;
-  color: theme.$text1-color;
+  color: theme.$white;
 }
 
 :local(.icon-disabled) {
@@ -37,7 +37,7 @@
 
   width: 24px;
   height: 24px;
-  color: theme.$text2-color;
+  color: theme.$white;
 }
 
 :local(.arrow-button) {
@@ -71,4 +71,8 @@
   color: theme.$disabled-text-color;
   font-size: theme.$font-size-md;
   text-align: center;
+}
+
+:local(.inputLabel) {
+  color: theme.$white;
 }
