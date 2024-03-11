@@ -50,7 +50,7 @@ ReactionPopoverContent.propTypes = {
 function TooltipPopoverContent({ onToggleHandRaised }) {
   return (
     <Row nowrap className={styles.popover}>
-      <Column padding="xs" grow gap="xs">
+      <Column className={styles.popoverMessage} padding="xs" grow gap="xs">
         <FormattedMessage id="reaction-popover.hand-raised-warning" defaultMessage="Your hand is raised" />
       </Column>
       <Column padding="xs" grow gap="xs">

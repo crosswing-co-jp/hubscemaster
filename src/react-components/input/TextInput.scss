@@ -100,8 +100,8 @@ $input-height: 40px;
 :local(.text-input) {
   height: 100%;
   width: 100%;
-  border: none;
-  background-color: transparent;
+  border: gray;
+  background-color: theme.$white;
   padding-left: 8px;
   line-height: calc(#{$input-height} - 2px);
 

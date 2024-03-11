@@ -13,7 +13,7 @@
   margin-left: 16px;
   font-size: theme.$font-size-xs;
   font-weight: theme.$font-weight-bold;
-  color: theme.$text3-color;
+  color: theme.$white;
 }
 
 :local(.more-menu-item-list) {
@@ -40,7 +40,7 @@
   }
 
   svg {
-    color: theme.$text1-color;
+    color: theme.$white;
   }
 
   // Hack to make hover styles overlap popover border and look correct.
@@ -79,7 +79,8 @@
 
 button:local(.more-menu-item-target) {
   background: transparent;
-  border: none; 
+  border: none;
+  color: theme.$white;
 }
 
 :local(.compact-button) {

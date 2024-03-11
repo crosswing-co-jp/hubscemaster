@@ -2,7 +2,7 @@
 
 :local(.label) {
   margin-bottom: 8px;
-  color: theme.$text2-color;
+  color: theme.$white;
   align-self: flex-start;
   font-weight: theme.$font-weight-bold;
   font-size: theme.$font-size-sm
@@ -10,4 +10,8 @@
 
 :local(.popover) {
   margin-bottom: -8px;
+}
+
+:local(.popoverMessage) {
+  color: theme.$white;
 }
