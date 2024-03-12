@@ -51,7 +51,7 @@ import { MicSetupModalContainer } from "./room/MicSetupModalContainer";
 import { InvitePopoverContainer } from "./room/InvitePopoverContainer";
 import { MoreMenuPopoverButton, CompactMoreMenuButton, MoreMenuContextProvider } from "./room/MoreMenuPopover";
 import { ChatSidebarContainer } from "./room/ChatSidebarContainer";
-import { ContentMenu, PeopleMenuButton, ObjectsMenuButton, ECSDebugMenuButton } from "./room/ContentMenu";
+import { ContentMenu, PeopleMenuButton, ECSDebugMenuButton } from "./room/ContentMenu";
 import { ReactComponent as CameraIcon } from "./icons/Camera.svg";
 import { ReactComponent as AvatarIcon } from "./icons/Avatar.svg";
 import { ReactComponent as AddIcon } from "./icons/Add.svg";
@@ -1413,12 +1413,6 @@ class UIRoot extends Component {
                     {(!this.props.selectedObject ||
                       (this.props.breakpoint !== "sm" && this.props.breakpoint !== "md")) && (
                       <ContentMenu>
-                        {showObjectList && (
-                          <ObjectsMenuButton
-                            active={this.state.sidebarId === "objects"}
-                            onClick={() => this.toggleSidebar("objects")}
-                          />
-                        )}
                         <PeopleMenuButton
                           active={this.state.sidebarId === "people"}
                           disabled={isLockedDownDemo}
