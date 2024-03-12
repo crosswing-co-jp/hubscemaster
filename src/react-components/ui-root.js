@@ -82,6 +82,7 @@ import { AudioPopoverButtonContainer } from "./room/AudioPopoverButtonContainer"
 import { ReactionPopoverContainer } from "./room/ReactionPopoverContainer";
 import { CameraButtonContainer } from "./room/CameraButtonContainer";
 import { AvatarButtonContainer } from "./room/AvatarButtonContainer";
+import { ToggleTpsButtonContainer } from "./room/ToggleTpsButtonContainer";
 import { SafariMicModal } from "./room/SafariMicModal";
 import { RoomSignInModalContainer } from "./auth/RoomSignInModalContainer";
 import { SignInStep } from "./auth/SignInModal";
@@ -1122,7 +1123,6 @@ class UIRoot extends Component {
 
     const isLockedDownDemo = isLockedDownDemoRoom();
 
-    const showObjectList = enteredOrWatching && !isLockedDownDemo;
     const showECSObjectsMenuButton = qsTruthy("ecsDebug");
 
     const streamer = getCurrentStreamer();
@@ -1655,6 +1655,7 @@ class UIRoot extends Component {
                         {this.props.hubChannel.can("spawn_and_move_media") && (
                           <AvatarButtonContainer mediaSearchStore={this.props.mediaSearchStore} />
                         )}
+                        <ToggleTpsButtonContainer store={this.props.store} scene={this.props.scene} />
                       </>
                     )}     
                     {entered && isMobileVR && (
