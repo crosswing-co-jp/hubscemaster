@@ -80,6 +80,8 @@ import { PlacePopoverContainer } from "./room/PlacePopoverContainer";
 import { SharePopoverContainer } from "./room/SharePopoverContainer";
 import { AudioPopoverButtonContainer } from "./room/AudioPopoverButtonContainer";
 import { ReactionPopoverContainer } from "./room/ReactionPopoverContainer";
+import { CameraButtonContainer } from "./room/CameraButtonContainer";
+import { AvatarButtonContainer } from "./room/AvatarButtonContainer";
 import { SafariMicModal } from "./room/SafariMicModal";
 import { RoomSignInModalContainer } from "./auth/RoomSignInModalContainer";
 import { SignInStep } from "./auth/SignInModal";
@@ -1651,6 +1653,16 @@ class UIRoot extends Component {
                         selected={this.state.sidebarId === "chat"}
                       />
                     )}
+                    {entered && (
+                      <>
+                        {this.props.hubChannel.can("spawn_camera") && (
+                          <CameraButtonContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />
+                        )}
+                        {this.props.hubChannel.can("spawn_and_move_media") && (
+                          <AvatarButtonContainer mediaSearchStore={this.props.mediaSearchStore} />
+                        )}
+                      </>
+                    )}     
                     {entered && isMobileVR && (
                       <ToolbarButton
                         className={styleUtils.hideLg}
