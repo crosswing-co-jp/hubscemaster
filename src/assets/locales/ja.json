@@ -305,7 +305,7 @@
   "media-tile.action.room-info": "ルーム情報",
   "media-tile.action.show-similar-avatars": "類似のアバターを表示する",
   "media-tile.joined-room": "参加 {relativeTime}",
-  "mic-setup-modal.check-mic": "入室前にマイクと音声の状態を確認してください。",
+  "mic-setup-modal.check-mic": "{appName}では迷惑行為防止の観点により、マイク機能を利用不可とさせていただいております。ミュートでご入室ください。",
   "mic-setup-modal.enter-room-button": "入室",
   "mic-setup-modal.error-description": "Hubsで会話するためには、マイクの使用を許可する必要があります。",
   "mic-setup-modal.error-title": "マイクアクセスが拒否されました。",
@@ -695,5 +695,7 @@
   "webvr-unsupported-modal.message": "WebVRはこのブラウザではサポートされていません。OculusやSteamVRで入場する場合は、Firefoxを使用してください。",
   "webvr-unsupported-modal.title": "VRで入室",
   "webvr-unsupported-modal.webvr-rocks-link": "実験的なVRをサポートしているブラウザの一覧は <a>WebVR Rocks</a> を確認してください。",
-  "whats-new-page.title": "新着情報"
+  "whats-new-page.title": "新着情報",
+  "official-site-links.show-button": "{appName}\n関連サイトへ",
+  "official-site-links.sidebar-title": "{appName} 関連サイト"
 }

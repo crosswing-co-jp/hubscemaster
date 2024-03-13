@@ -1,0 +1,46 @@
+@use "../styles/theme.scss";
+
+:local(.official-site-links-button) {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  color: theme.$white;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  border: 1px solid var(--border1-color);
+
+  @media(min-width: theme.$breakpoint-md) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media(max-width: theme.$breakpoint-lg) {
+    right: 10px;
+    top: 65px;
+  }
+
+  @media(min-width: theme.$breakpoint-lg) {
+    left: 35px;
+    bottom: 35px;
+  }
+
+  svg {
+    margin: 0 auto;
+
+    @media(min-width: theme.$breakpoint-lg) {
+      margin: 3px auto 0;
+    }
+  }
+}
+
+:local(.official-site-links-button-text) {
+  font-size: 10px;
+  line-height: 15px;
+  margin-top: 12px;
+  white-space: pre;
+
+  @media(min-width: theme.$breakpoint-lg) {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
