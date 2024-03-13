@@ -92,6 +92,8 @@ import { RoomSettingsSidebarContainer } from "./room/RoomSettingsSidebarContaine
 import { AutoExitWarningModal, AutoExitReason } from "./room/AutoExitWarningModal";
 import { ExitReason } from "./room/ExitedRoomScreen";
 import { UserProfileSidebarContainer } from "./room/UserProfileSidebarContainer";
+import { OfficialSiteLinksButtonContainer } from "./room/OfficialSiteLinksButtonContainer";
+import { OfficialSiteLinksSidebarContainer } from "./room/OfficialSiteLinksSidebarContainer";
 import { CloseRoomModal } from "./room/CloseRoomModal";
 import { WebVRUnsupportedModal } from "./room/WebVRUnsupportedModal";
 import { TweetModalContainer } from "./room/TweetModalContainer";
@@ -108,6 +110,7 @@ import ChatToolbarButton from "./room/components/ChatToolbarButton/ChatToolbarBu
 import SeePlansCTA from "./room/components/SeePlansCTA/SeePlansCTA";
 
 const avatarEditorDebug = qsTruthy("avatarEditorDebug");
+const appName = configs.translation("app-name");
 
 const IN_ROOM_MODAL_ROUTER_PATHS = ["/media"];
 const IN_ROOM_MODAL_QUERY_VARS = ["media_source"];
@@ -187,6 +190,7 @@ class UIRoot extends Component {
     linkCode: null,
     linkCodeCancel: null,
     miniInviteActivated: false,
+    showOfficialSiteLinks: false,
 
     didConnectToNetworkedScene: false,
     noMoreLoadingUpdates: false,
@@ -927,6 +931,7 @@ class UIRoot extends Component {
         scene={this.props.scene}
         onEnterRoom={this.onAudioReadyButton}
         onBack={() => this.props.history.goBack()}
+        appName={appName}
       />
     );
   };
@@ -1410,6 +1415,18 @@ class UIRoot extends Component {
                   <>
                     {!this.state.dialog && renderEntryFlow ? entryDialog : undefined}
                     {!this.props.selectedObject && <CompactMoreMenuButton />}
+                    {!this.state.showOfficialSiteLinks && (
+                      <OfficialSiteLinksButtonContainer
+                        onClick={() => this.setState({ showOfficialSiteLinks: true })}
+                        appName={appName}
+                        />
+                        )}
+                    {this.state.showOfficialSiteLinks && (
+                      <OfficialSiteLinksSidebarContainer
+                        onClose={() => this.setState({ showOfficialSiteLinks: false })}
+                        appName={appName}
+                      />
+                    )}
                     {(!this.props.selectedObject ||
                       (this.props.breakpoint !== "sm" && this.props.breakpoint !== "md")) && (
                       <ContentMenu>
