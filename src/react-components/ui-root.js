@@ -1718,6 +1718,7 @@ class UIRoot extends Component {
                     <MoreMenuPopoverButton menu={moreMenu} />
                   </>
                 }
+                entered={entered}
               />
             )}
           </div>

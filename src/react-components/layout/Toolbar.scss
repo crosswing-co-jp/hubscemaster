@@ -6,7 +6,6 @@
   padding: 12px;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   border-top: 1px solid theme.$border1-color;
-  position: relative;
 
   @media (min-width: theme.$breakpoint-lg) {
     padding: 12px 24px;
@@ -14,30 +13,37 @@
   }
 }
 
+:local(.customToolbar) {
+  @media (max-width: theme.$breakpoint-sm) {
+    position: relative;
+    overflow-y: hidden;
+    padding: 12px 0px;
+  }
+}
+
 :local(.content) {
   display: flex;
   flex: 1;
   justify-content: space-around;
-  align-items: center;
-  gap: 0 24px;
 
   @media (min-width: theme.$breakpoint-lg) {
     flex: 0;
+
+    & > * {
+      margin-right: 24px;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
   }
 }
 
-:local(.center_content) {
-  position: absolute;
-  display: flex;
-  width: calc(100% - 48px);
-  justify-content: center;
-  z-index: -1;
-
-  @media (max-width: theme.$breakpoint-lg) {
-    width: 100%;
-    position: relative;
-    justify-content: space-around;
-    gap: unset;
+:local(.centerContent) {
+  @media (max-width: theme.$breakpoint-sm) {
+    position: absolute;
+    width: 570px;
+    padding: 0px 15px;
   }
 }
 
