@@ -90,11 +90,13 @@ export function Footer({
             )}
             {showCompanyLogo && (
               <li>
-                <img
-                  className={styles.companyLogo}
-                  src={companyLogoUrl}
-                  alt={<FormattedMessage id="footer.logo-alt" defaultMessage="Logo" />}
-                />
+                <a href="https://www.cross-wing.co.jp/" target="_blank" rel="noopener noreferrer">
+                  <img
+                    className={styles.companyLogo}
+                    src={companyLogoUrl}
+                    alt={<FormattedMessage id="footer.logo-alt" defaultMessage="Logo" />}
+                  />
+                </a>
               </li>
             )}
           </ul>
