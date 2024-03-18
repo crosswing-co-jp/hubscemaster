@@ -2,7 +2,7 @@
 
 footer {
   display: block;
-  background-color: theme.$background2-color;
+  background-color: #0F1935;
   font-size: theme.$font-size-md;
   padding: 20px;
 
@@ -64,14 +64,20 @@ footer {
 
 :local(.powered-by) {
   text-align: center;
-  color: theme.$text1-color;
+  background-color:#ffffff0f;
+  color: theme.$white;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   @media(min-width: theme.$breakpoint-lg) {
-    margin-left: 20px;
+    margin: 15px 0 15px 20px;
+    padding: 15px;
   }
+}
+
+:local(.powered-by-link) {
+  margin-top: 5px;
 }
 
 :local(.company-logo) {

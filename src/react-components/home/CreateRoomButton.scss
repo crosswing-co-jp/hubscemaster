@@ -1,0 +1,17 @@
+@use "../styles/theme.scss";
+
+:local(.create-room-button) {
+  background-color: #E15F6D;
+  font-weight: 700;
+  border-radius: 3.75rem;
+  border: none;
+  color: theme.$white;
+  margin-right: 15px;
+
+  &:hover {
+    background-color: #E15F6D;
+    color: theme.$white;
+    filter: brightness(1.3);
+    transition: filter .2s ease-out;
+  }
+}
