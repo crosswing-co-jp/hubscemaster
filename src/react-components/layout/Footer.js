@@ -4,6 +4,7 @@ import { FormattedMessage } from "react-intl";
 import styles from "./Footer.scss";
 import discordLogoUrl from "../../assets/images/discord-logo-small.png";
 import { Container } from "./Container";
+import classNames from "classnames";
 
 export function Footer({
   hidePoweredBy,
@@ -29,7 +30,7 @@ export function Footer({
               values={{
                 // eslint-disable-next-line react/display-name
                 a: chunks => (
-                  <a className={styles.link} href="https://hubs.mozilla.com">
+                  <a className={classNames(styles.link, styles.poweredByLink)} href="https://hubs.mozilla.com/cloud">
                     {chunks}
                   </a>
                 )
