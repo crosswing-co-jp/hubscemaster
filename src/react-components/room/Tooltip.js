@@ -2,8 +2,8 @@ import React, { useMemo, memo } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Tooltip.scss";
-import configs from "../../utils/configs";
 import { useIntl, defineMessages } from "react-intl";
+import { AppLogo } from "../misc/AppLogo";
 import { Button } from "../input/Button";
 import { IconButton } from "../input/IconButton";
 import { ReactComponent as InviteIcon } from "../icons/Invite.svg";
@@ -43,23 +43,23 @@ const onboardingMessages = defineMessages({
       "<h2>Welcome to {appName}</h2><p>Let's take a quick look to get comfortable</p><p2>with the controls</p2>"
   },
   "tips.mobile.locomotion": {
-    id: "tips.mobile.locomotion2",
+    id: "tips.mobile.locomotion",
     defaultMessage: "<p>Move around by pinching with two fingers</p><p2>or with the on-screen joysticks</p2>"
   },
   "tips.mobile.turning": {
     id: "tips.mobile.turning",
-    defaultMessage: "Tap and drag to look around"
+    defaultMessage: "Tap and drag to turn"
   },
   "tips.desktop.locomotion": {
-    id: "tips.desktop.locomotion2",
+    id: "tips.desktop.locomotion",
     defaultMessage: "<p>Move around with</p> {wasd} or {arrows}"
   },
   "tips.desktop.turning": {
-    id: "tips.desktop.turning2",
-    defaultMessage: "Use {left} or {right} or click and drag to look around"
+    id: "tips.desktop.turning",
+    defaultMessage: "Use {left} or {right} or click and drag"
   },
   "tips.desktop.invite": {
-    id: "tips.desktop.invite2",
+    id: "tips.desktop.invite",
     defaultMessage: "<p>Use the {invite} button to share</p><p2>this room</p2>"
   },
   "tips.end": {
@@ -166,10 +166,10 @@ function WelcomeNavigationBar({ onNext, onDismiss }) {
   const intl = useIntl();
   return (
     <div className={styles.navigationContainer}>
-      <Button preset="primary" onClick={onNext}>
+      <Button preset="primary" className={classNames(styles.tutorialStartBtn)} onClick={onNext}>
         {intl.formatMessage(onboardingMessages["tips.buttons.get-started"])}
       </Button>
-      <Button preset="basic" onClick={onDismiss}>
+      <Button preset="basic" className={classNames(styles.tutorialSkipBtn)} onClick={onDismiss}>
         {intl.formatMessage(onboardingMessages["tips.buttons.skip-tour"])}
       </Button>
     </div>
@@ -193,7 +193,7 @@ function StepNavigationBar({ step, onPrev, onNext, params }) {
       </IconButton>
       <div style={{ display: "flex" }}>
         {[...Array(maxSteps(step))].map((v, i) => {
-          return <span key={i} className={classNames(styles.dot, i === currentStep && styles.dotEnabled)}></span>;
+          return <span key={i} className={classNames(styles.dot, i === currentStep && styles.dotEnabled)} />;
         })}
       </div>
       {rightArrow ? (
@@ -201,8 +201,8 @@ function StepNavigationBar({ step, onPrev, onNext, params }) {
           {">"}
         </IconButton>
       ) : (
-        <Button className={styles.endButton} preset={"text"} onClick={onNext}>
-          {intl.formatMessage(onboardingMessages["tips.buttons.done"])}
+        <Button className={styles.endButton} onClick={onNext}>
+          <span className={styles.endButtonPart}>{intl.formatMessage(onboardingMessages["tips.buttons.done"])}</span>
         </Button>
       )}
     </div>
@@ -224,10 +224,10 @@ function onboardingSteps({ intl, step }) {
         control: {
           type: Step,
           params: {
-            h2: chunks => <h2>{chunks}</h2>,
-            p: chunks => <p style={{ width: "100%" }}>{chunks}</p>,
+            p: chunks => <p style={{ display: "flex", alignItems: "center", fontSize: "21px" }}>{chunks}</p>,
             p2: chunks => <p style={{ width: "100%" }}>{chunks}</p>,
-            appName: configs.translation("app-name")
+            p3: chunks => <p style={{ width: "100%" }}>{chunks}</p>,
+            appLogo: <AppLogo className={styles.appLogo} forceConfigurableLogo />
           },
           messageId: "tips.welcome"
         },
@@ -287,16 +287,6 @@ function onboardingSteps({ intl, step }) {
           }
         }
       };
-    case "tips.desktop.menu":
-      return {
-        control: {
-          type: Step,
-          params: {
-            menu: <InlineButton icon={<MoreIcon />} text={intl.formatMessage(onboardingMessages["tips.text.more"])} />
-          },
-          messageId: "tips.menu"
-        }
-      };
     case "tips.mobile.locomotion":
       return {
         control: {
@@ -316,7 +306,11 @@ function onboardingSteps({ intl, step }) {
     case "tips.mobile.turning":
       return {
         control: {
-          type: Step
+          type: Step,
+          params: {
+            p: chunks => <p style={{ width: "100%" }}>{chunks}</p>,
+            p2: chunks => <p style={{ width: "100%" }}>{chunks}</p>
+          }
         },
         navigationBar: {
           type: StepNavigationBar,
@@ -325,22 +319,27 @@ function onboardingSteps({ intl, step }) {
           }
         }
       };
-    case "tips.mobile.menu":
-      return {
-        control: {
-          type: Step,
-          params: {
-            menu: <InlineIcon icon={<MoreIcon />} />
-          },
-          messageId: "tips.menu"
-        }
-      };
     case "tips.desktop.end":
     case "tips.mobile.end":
       return {
         control: {
           type: Step,
+          params: {
+            p: chunks => <p style={{ width: "100%", lineHeight: "25px" }}>{chunks}</p>
+          },
           messageId: "tips.end"
+        }
+      };
+    case "tips.desktop.menu":
+    case "tips.mobile.menu":
+      return {
+        control: {
+          type: Step,
+          params: {
+            menu: <InlineButton icon={<MoreIcon />} text={intl.formatMessage(onboardingMessages["tips.text.more"])} />,
+            p: chunks => <p style={{ width: "100%" }}>{chunks}</p>
+          },
+          messageId: "tips.menu"
         }
       };
   }
