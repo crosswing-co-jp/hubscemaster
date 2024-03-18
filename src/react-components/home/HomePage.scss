@@ -3,9 +3,9 @@
 :local(.home-page) {
   flex: 1;
   background-size: cover;
-  padding: 0;
   flex-direction: column;
   align-items: center;
+  background-image: url(../../assets/images/bg_space.jpg);
 
   @media (min-width: theme.$breakpoint-lg) {
     align-items: center;
@@ -13,7 +13,16 @@
   }
 
   & > section {
-    margin: 2em auto;
+    margin: 60px auto;
+  }
+}
+
+:local(.container) {
+  @media (min-width: theme.$breakpoint-lg) {
+    background-color:#ffffff0f;
+    backdrop-filter:blur(34.3013000488px);
+    padding: 50px 35px;
+    margin-top: 70px;
   }
 }
 
@@ -58,15 +67,6 @@
   }
 }
 
-:local(.hero-image-container) {
-
-  img {
-    @media (min-width: theme.$breakpoint-lg) {
-      border-radius: 16px;
-    }
-  }
-}
-
 :local(.app-info) {
   display: flex;
   flex-direction: column;
@@ -80,7 +80,6 @@
   
   @media (min-width: theme.$breakpoint-lg) {
     margin-bottom: 0;
-    margin-left: 16px;
     justify-content: flex-start;
     align-items: flex-start;
 
@@ -98,12 +97,19 @@
   text-align: center;
   margin: 0 24px 20px 24px;
   line-height: 1.25;
+  color: theme.$white;
 
   @media (min-width: theme.$breakpoint-lg) {
     text-align: left;
     margin: 0 16px 48px 0px;
     max-width: 860px;
     font-size: theme.$font-size-2xl;
+  }
+}
+
+:local(.btn-area) {
+  @media (min-width: theme.$breakpoint-lg) {
+    display: flex;
   }
 }
 
@@ -156,14 +162,15 @@
 }
 
 :local(.rooms-heading) {
-  margin-left: 40px;
-  font-size: 24px;
-  margin-bottom: 16px;
+  padding-bottom: 20px;
+  font-size: clamp(18px, calc(24 / 375 * 100vw), calc(40 / 16 * 1rem));
+  text-align: center;
 }
  
 :local(.rooms) {
-  background-color: theme.$background2-color;
-  border-radius: 16px;
+  background-color: #FAF4EF;
+  color: #0F1935;
+  padding: 60px 20px;
 }
 
 :local(.row) {
