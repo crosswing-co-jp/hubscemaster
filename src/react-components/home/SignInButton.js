@@ -6,11 +6,12 @@ import { Button } from "../input/Button";
 
 export function SignInButton({ mobile }) {
   return (
-    <Button className={mobile ? styles.mobileSignIn : styles.SignInButton} thick preset="signin" as="a" href="/signin">
-      <FormattedMessage id="sign-in-button" defaultMessage="Sign in/Sign up" />
+    <Button className={mobile ? styles.mobileSignIn : styles.signInButton} thick preset="signin" as="a" href="/signin">
+      <FormattedMessage id="header.sign-in-sign-up" defaultMessage="Sign in/Sign up" />
     </Button>
   );
 }
+
 SignInButton.propTypes = {
   mobile: PropTypes.bool
 };

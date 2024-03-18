@@ -8,6 +8,7 @@ import styles from "./Header.scss";
 import { Container } from "./Container";
 import { SocialBar } from "../home/SocialBar";
 import { SignInButton } from "../home/SignInButton";
+import { SignOutButton } from "../home/SignOutButton";
 import { AppLogo } from "../misc/AppLogo";
 
 export function Header({
@@ -26,7 +27,7 @@ export function Header({
   isHmc
 }) {
   return (
-    <header>
+    <header className={styles.container}>
       <Container as="div" className={styles.container}>
         <nav>
           <ul>
@@ -37,7 +38,7 @@ export function Header({
             </li>
             {enableSpoke && (
               <li>
-                <a href="/spoke">
+                <a href="/spoke" className={styles.spoke}>
                   {isHmc ? <FormattedMessage id="header.spoke" defaultMessage="Spoke" /> : editorName}
                 </a>
               </li>
@@ -79,7 +80,7 @@ export function Header({
             )}
             {isAdmin && (
               <li>
-                <a href="/admin" rel="noreferrer noopener">
+                <a href="/admin" rel="noreferrer noopener" className={styles.admin}>
                   <i>
                     <FontAwesomeIcon icon={faCog} />
                   </i>
@@ -93,16 +94,14 @@ export function Header({
         <div className={styles.signIn}>
           {isSignedIn ? (
             <div>
-              <span>
+              <span className={styles.signedInMessage}>
                 <FormattedMessage
                   id="header.signed-in-as"
                   defaultMessage="Signed in as {email}"
                   values={{ email: maskEmail(email) }}
                 />
               </span>
-              <a href="#" onClick={onSignOut}>
-                <FormattedMessage id="header.sign-out" defaultMessage="Sign Out" />
-              </a>
+              <SignOutButton onSignOut={onSignOut} />
             </div>
           ) : (
             <SignInButton />
