@@ -15,20 +15,18 @@
 :local(.tip) {
   pointer-events: all;
   min-height: 48px;
-  border-radius: 24px;
-  background-color: theme.$background1-color;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   border: 1px solid theme.$border1-color;
-  width: 360px;
+  border-radius: 8px;
+  width: 380px;
   font-size: theme.$font-size-md;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   text-align: center;
-
-  @media (min-width: theme.$breakpoint-lg) and (min-height: theme.$breakpoint-vr) {
-    bottom: 24px;
-  }
+  padding: 15px;
+  color: theme.$white;
 }
 
 :local(.tip-show-bottom) {
@@ -69,7 +67,14 @@
   justify-content: center;
   gap: 8px;
   padding: 18px 18px 18px 18px;
+  line-height: 25px;
 }
+
+:local(.app-logo) {
+  width: 180px;
+  margin: 0 5px 2px 0;
+}
+
 
 :local(.navigation-container) {
   flex-direction: row;
@@ -92,6 +97,28 @@
   }
 }
 
+:local(.tutorial_start_btn) {
+  background-color: #e15f6d;
+  border-radius: 3.75rem;
+
+  &:hover {
+    background-color: #e15f6d;
+    color: #fff;
+    filter: brightness(1.3);
+    transition: filter .2s ease-out;
+  }
+}
+
+:local(.tutorial_skip_btn) {
+  border-radius: 3.75rem;
+
+  &:hover {
+    color: theme.$text4-color;
+    filter: brightness(1.3);
+    transition: filter .2s ease-out;
+  }
+}
+
 :local(.key) {
   border-radius: 8px;
   background-color: theme.$background1-color;
@@ -101,6 +128,7 @@
   width: 36px;
   line-height: 36px;
   margin: 5px;
+  color: #0f1935;
 }
 
 :local(.inline-button) {
@@ -114,6 +142,7 @@
   align-items: center;
   padding: 12px;
   vertical-align: middle;
+  color: #0f1935;
 
   svg {
     width: 18px;
@@ -151,6 +180,7 @@
 :local(.desktop-move-container) {
   display: flex;
   flex-direction: column;
+  color: #0f1935;
 
   div:first-child {
     display: flex;
@@ -165,8 +195,8 @@
 }
 
 :local(.dot) {
-  height: 6px;
-  width: 6px;
+  height: 7px;
+  width: 7px;
   background-color: theme.$disabled-bg-color;
   border-radius: 50%;
   display: inline-block;
@@ -181,12 +211,19 @@
 }
 
 :local(.dot-enabled) {
-  background-color: theme.$primary-color;
+  background-color: #1EA092;
 }
 
 :local(.arrows) {
-  font-size: theme.$font-size-xl;
+  font-size: theme.$font-size-2xl;
   font-weight: lighter;
+  color: #E15F6D;
+
+  &:hover {
+    color: #e15f6d;
+    filter: brightness(1.3);
+    transition: filter .2s ease-out;
+  }
 }
 
 :local(.arrows-hidden) {
@@ -200,4 +237,29 @@
   width: fit-content;
   min-height: fit-content;
   height: fit-content;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  padding: 0px;
+
+  &:hover {
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+:local(.end-button-part) {
+  display: flex;
+  height: 25px;
+  width: 50px;
+  background-color: #E15F6D;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3.75rem;
+
+  &:hover {
+    background-color: #E15F6D;
+    color: #FFFFFF;
+    filter: brightness(1.3);
+    transition: filter .2s ease-out;
+  }
 }

@@ -12,6 +12,7 @@ export function RoomLayout({
   toolbarLeft,
   toolbarCenter,
   toolbarRight,
+  entered,
   toolbarClassName,
   modal,
   viewport,
@@ -30,6 +31,7 @@ export function RoomLayout({
           left={toolbarLeft}
           center={toolbarCenter}
           right={toolbarRight}
+          entered={entered}
         />
       )}
       <div
@@ -50,6 +52,7 @@ RoomLayout.propTypes = {
   toolbarLeft: PropTypes.node,
   toolbarCenter: PropTypes.node,
   toolbarRight: PropTypes.node,
+  entered: PropTypes.bool,
   toolbarClassName: PropTypes.string,
   modal: PropTypes.node,
   viewport: PropTypes.node,
