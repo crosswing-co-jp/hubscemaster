@@ -1,11 +1,10 @@
 import { addMedia } from "../utils/media-utils";
 import { ObjectContentOrigins } from "../object-types";
-import { Held, HeldHandLeft, HeldHandRight, HeldRemoteLeft, HeldRemoteRight } from "../bit-components";
-import { addComponent } from "bitecs";
+import { triggeredFunctions } from "../triggeredFunctions";
 
 // WARNING: This system mutates interaction system state!
 export class SuperSpawnerSystem {
-  maybeSpawn(state, grabPath, HeldComponent) {
+  maybeSpawn(state, grabPath) {
     const userinput = AFRAME.scenes[0].systems.userinput;
     const superSpawner = state.hovered && state.hovered.components["super-spawner"];
 
@@ -15,18 +14,83 @@ export class SuperSpawnerSystem {
         ? window.APP.hubChannel.can("spawn_emoji")
         : window.APP.hubChannel.can("spawn_and_move_media"));
 
+    let isScriptTrigger = false;
+    if (superSpawner) {
+      if (state.hovered.object3D.name.indexOf("script") !== -1) {
+        isScriptTrigger = true;
+      }
+    }
+
     if (
       superSpawner &&
       superSpawner.spawnedMediaScale &&
       !superSpawner.cooldownTimeout &&
       userinput.get(grabPath) &&
-      isPermitted
+      isPermitted &&
+      !isScriptTrigger
     ) {
-      this.performSpawn(state, superSpawner, HeldComponent);
+      this.performSpawn(state, grabPath, userinput, superSpawner);
+    } else if (
+      superSpawner &&
+      superSpawner.spawnedMediaScale &&
+      !superSpawner.cooldownTimeout &&
+      userinput.get(grabPath) &&
+      isPermitted &&
+      isScriptTrigger
+    ) {
+      if (state.hovered.object3D.name.indexOf("inner") !== -1) {
+        const target = state.hovered.object3D.name.indexOf("inner");
+        const numberStr = state.hovered.object3D.name.substring(target + 5, target + 7);
+        triggeredFunctions.innerFrameNumClick(numberStr);
+      } else if (state.hovered.object3D.name.indexOf("stage") !== -1) {
+        const target = state.hovered.object3D.name.indexOf("stage");
+        const numberStr = state.hovered.object3D.name.substring(target + 5, target + 7);
+        triggeredFunctions.innerFrameNumClick(numberStr);
+      } else if (state.hovered.object3D.name.indexOf("voicefrm") !== -1) {
+        const numberStr = state.hovered.object3D.name.match(/\_.+?\_/);
+        triggeredFunctions.innerFrameVoiceClick(numberStr);
+      } else if (state.hovered.object3D.name.indexOf("voicepop") !== -1) {
+        const numberStr = state.hovered.object3D.name.match(/\_.+?\_/);
+        triggeredFunctions.popupVoiceClick(numberStr);
+      } else if (state.hovered.object3D.name.indexOf("inner01") !== -1) {
+        triggeredFunctions.innerFrame01Click();
+      } else if (state.hovered.object3D.name.indexOf("inner02") !== -1) {
+        triggeredFunctions.innerFrame02Click();
+      } else if (state.hovered.object3D.name.indexOf("inner03") !== -1) {
+        triggeredFunctions.innerFrame03Click();
+      } else if (state.hovered.object3D.name.indexOf("inner04") !== -1) {
+        triggeredFunctions.innerFrame04Click();
+      } else if (state.hovered.object3D.name.indexOf("inner05") !== -1) {
+        triggeredFunctions.innerFrame05Click();
+      } else if (state.hovered.object3D.name.indexOf("inner06") !== -1) {
+        triggeredFunctions.innerFrame06Click();
+      } else if (state.hovered.object3D.name.indexOf("inner07") !== -1) {
+        triggeredFunctions.innerFrame07Click();
+      } else if (state.hovered.object3D.name.indexOf("inner08") !== -1) {
+        triggeredFunctions.innerFrame08Click();
+      } else if (state.hovered.object3D.name.indexOf("stage01") !== -1) {
+        triggeredFunctions.popup01Click();
+      } else if (state.hovered.object3D.name.indexOf("stage02") !== -1) {
+        triggeredFunctions.popup02Click();
+      } else if (state.hovered.object3D.name.indexOf("stage03") !== -1) {
+        triggeredFunctions.popup03Click();
+      } else if (state.hovered.object3D.name.indexOf("stage04") !== -1) {
+        triggeredFunctions.popup04Click();
+      } else if (state.hovered.object3D.name.indexOf("stage05") !== -1) {
+        triggeredFunctions.popup05Click();
+      } else if (state.hovered.object3D.name.indexOf("stage06") !== -1) {
+        triggeredFunctions.popup06Click();
+      } else if (state.hovered.object3D.name.indexOf("stage07") !== -1) {
+        triggeredFunctions.popup07Click();
+      } else if (state.hovered.object3D.name.indexOf("stage08") !== -1) {
+        triggeredFunctions.popup08Click();
+      } else if (state.hovered.object3D.name.indexOf("normal01") !== -1) {
+        triggeredFunctions.normal01Click();
+      }
     }
   }
 
-  performSpawn(state, superSpawner, HeldComponent) {
+  performSpawn(state, grabPath, userinput, superSpawner) {
     const data = superSpawner.data;
 
     const spawnedEntity = addMedia(
@@ -53,21 +117,19 @@ export class SuperSpawnerSystem {
 
     superSpawner.el.emit("spawned-entity-created", { target: spawnedEntity });
 
+    state.held = spawnedEntity;
+
     superSpawner.activateCooldown();
+
+    state.spawning = true;
 
     spawnedEntity.addEventListener(
       "media-loaded",
       () => {
         spawnedEntity.object3D.scale.copy(superSpawner.spawnedMediaScale);
         spawnedEntity.object3D.matrixNeedsUpdate = true;
-
+        state.spawning = false;
         superSpawner.el.emit("spawned-entity-loaded", { target: spawnedEntity });
-
-        // TODO we do this in media loaded as the entity doesn't appear to actually be initialized right away (and thus doesn't have an eid)
-        // This is fairly hacky and is why we had equally hacky "spawning" state stuff before. This goes away with non aframe entities so
-        // just localizing and carrying forward the hack for now.
-        addComponent(APP.world, HeldComponent, spawnedEntity.eid);
-        addComponent(APP.world, Held, spawnedEntity.eid);
       },
       { once: true }
     );
@@ -76,9 +138,9 @@ export class SuperSpawnerSystem {
   tick() {
     const interaction = AFRAME.scenes[0].systems.interaction;
     if (!interaction.ready) return; //DOMContentReady workaround
-    this.maybeSpawn(interaction.state.leftHand, interaction.options.leftHand.grabPath, HeldHandLeft);
-    this.maybeSpawn(interaction.state.rightHand, interaction.options.rightHand.grabPath, HeldHandRight);
-    this.maybeSpawn(interaction.state.rightRemote, interaction.options.rightRemote.grabPath, HeldRemoteRight);
-    this.maybeSpawn(interaction.state.leftRemote, interaction.options.leftRemote.grabPath, HeldRemoteLeft);
+    this.maybeSpawn(interaction.state.leftHand, interaction.options.leftHand.grabPath);
+    this.maybeSpawn(interaction.state.rightHand, interaction.options.rightHand.grabPath);
+    this.maybeSpawn(interaction.state.rightRemote, interaction.options.rightRemote.grabPath);
+    this.maybeSpawn(interaction.state.leftRemote, interaction.options.leftRemote.grabPath);
   }
 }
