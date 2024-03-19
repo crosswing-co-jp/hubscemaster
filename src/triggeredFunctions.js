@@ -3,7 +3,7 @@ import { JSFrame } from "jsframe.js";
 export class triggeredFunctions {
   static innerFrameVoiceClick(numberStr) {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -94,7 +94,7 @@ export class triggeredFunctions {
 
   static innerFrameNumClick(numberStr) {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -134,7 +134,7 @@ export class triggeredFunctions {
 
   static innerFrame01Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -174,7 +174,7 @@ export class triggeredFunctions {
 
   static innerFrame02Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -214,7 +214,7 @@ export class triggeredFunctions {
 
   static innerFrame03Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -254,7 +254,7 @@ export class triggeredFunctions {
 
   static innerFrame04Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -294,7 +294,7 @@ export class triggeredFunctions {
 
   static innerFrame05Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -334,7 +334,7 @@ export class triggeredFunctions {
 
   static innerFrame06Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -374,7 +374,7 @@ export class triggeredFunctions {
 
   static innerFrame07Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
@@ -414,7 +414,7 @@ export class triggeredFunctions {
 
   static innerFrame08Click() {
     const jsFrame = new JSFrame();
-    const windowtitle = "VOiCE VR";
+    const windowtitle = "メタぼっくす";
     //アンカー
     const align = "CENTER_CENTER";
     //iframe内に表示するURL
