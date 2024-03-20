@@ -164,10 +164,10 @@ export function HomePage() {
       )}
       {sortedFavoriteRooms.length > 0 && (
         <Container className={styles.roomsContainer}>
-          <h3 className={styles.roomsHeading}>
-            <FormattedMessage id="home-page.favorite-rooms" defaultMessage="Favorite Rooms" />
-          </h3>
-          <Column grow padding className={styles.rooms}>
+          <Column grow className={styles.rooms}>
+            <h3 className={styles.roomsHeading}>
+              <FormattedMessage id="home-page.favorite-rooms" defaultMessage="Favorite Rooms" />
+            </h3>
             <MediaGrid center>
               {sortedFavoriteRooms.map(room => {
                 return (

@@ -6,7 +6,7 @@ $mobile-breakpoint-width: 450px;
   p {
     font-size: theme.$font-size-sm;
     font-weight: theme.$font-weight-medium;
-    line-height: 1.2;
+    line-height: 1.5;
   }
 
   & > :last-child {
@@ -45,7 +45,7 @@ $mobile-breakpoint-width: 450px;
 
   width: 48px;
   height: 48px;
-  color: theme.$text1-color;
+  color: theme.$white;
 }
 
 :local(.icon-disabled) {
@@ -56,7 +56,7 @@ $mobile-breakpoint-width: 450px;
 
   width: 48px;
   height: 48px;
-  color: theme.$disabled-text-color;
+  color: theme.$white;
 }
 
 :local(.icon-container) {
@@ -133,4 +133,22 @@ $mobile-breakpoint-width: 450px;
 :local(.level-bar) {
   width: 24px;
   height: 100%;
+}
+
+:local(.test-audio) {
+  color: #0F1935;
+}
+
+:local(.enter-room-button) {
+  background-color: #e15f6d;
+  border-radius: 3.75rem;
+  border: none;
+  color: theme.$white;
+
+  &:hover {
+    background-color: #e15f6d;
+    color: theme.$white;
+    filter: brightness(1.2);
+    transition: filter .2s ease-out;
+  }
 }

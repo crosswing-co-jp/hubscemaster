@@ -31,6 +31,7 @@ export function SelectInputField({
   description,
   inputClassName,
   buttonClassName,
+  dropdownClassName,
   label,
   onChange,
   value,
@@ -77,7 +78,7 @@ export function SelectInputField({
           <CaretDownIcon />
         </button>
         {options.length > 0 && (
-          <ul {...getMenuProps()} className={styles.dropdown}>
+          <ul {...getMenuProps()} className={classNames(styles.dropdown, dropdownClassName)}>
             {isOpen &&
               options.map((item, index) => (
                 <li
@@ -103,6 +104,7 @@ SelectInputField.propTypes = {
   labelClassName: PropTypes.string,
   inputClassName: PropTypes.string,
   buttonClassName: PropTypes.string,
+  dropdownClassName: PropTypes.string,
   value: PropTypes.any,
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([

@@ -1,11 +1,12 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
+import styles from "./LegalMessage.scss";
 import { FormattedMessage } from "react-intl";
 
 export function LegalMessage({ termsUrl, privacyUrl }) {
   const toslink = useCallback(
     chunks => (
-      <a rel="noopener noreferrer" target="_blank" href={termsUrl}>
+      <a className={styles.tosLink} rel="noopener noreferrer" target="_blank" href={termsUrl}>
         {chunks}
       </a>
     ),
@@ -14,7 +15,7 @@ export function LegalMessage({ termsUrl, privacyUrl }) {
 
   const privacylink = useCallback(
     chunks => (
-      <a rel="noopener noreferrer" target="_blank" href={privacyUrl}>
+      <a className={styles.privacyLink} rel="noopener noreferrer" target="_blank" href={privacyUrl}>
         {chunks}
       </a>
     ),

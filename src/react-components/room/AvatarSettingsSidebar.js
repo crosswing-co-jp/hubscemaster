@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./AvatarSettingsSidebar.scss";
 import { Sidebar } from "../sidebar/Sidebar";
 import { CloseButton } from "../input/CloseButton";
 import { BackButton } from "../input/BackButton";
@@ -13,7 +14,7 @@ export function AvatarSettingsSidebar({ className, showBackButton, onBack, onClo
       beforeTitle={showBackButton ? <BackButton onClick={onBack} /> : <CloseButton onClick={onClose} />}
       className={className}
     >
-      <AvatarSettingsContent {...rest} />
+      <AvatarSettingsContent className={styles.label} {...rest} />
     </Sidebar>
   );
 }

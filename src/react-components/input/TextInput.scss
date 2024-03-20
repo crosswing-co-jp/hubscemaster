@@ -12,8 +12,8 @@ $input-height: 40px;
   overflow: hidden;
 
   &:focus-within {
-    border-color: theme.$input-outline-color;
-    box-shadow: 0 0 0 2px theme.$input-outline-color;
+    border-color: #e15f6d;
+    box-shadow: 0 0 0 2px #e15f6d;
   }
 }
 

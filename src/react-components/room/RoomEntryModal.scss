@@ -28,14 +28,12 @@
 
   h5 {
     font-size: theme.$font-size-xs;
-    color: theme.$text3-color;
     margin-bottom: 4px;
   }
 
   p {
     font-size: theme.$font-size-sm;
     text-align: center;
-    color: theme.$text1-color;
 
     @media (min-width: theme.$breakpoint-lg) and (min-height: theme.$breakpoint-vr) {
       font-size: 20px;
@@ -53,4 +51,100 @@
       margin-right: 8px;
     }
   }
+}
+
+:local(.join-room-button) {
+  background-color: #e15f6d;
+  border: none;
+  color: theme.$white;
+
+  &:hover {
+    background-color: #e15f6d;
+    color: theme.$white;
+    filter: brightness(1.2);
+    transition: filter .2s ease-out;
+  }
+
+  svg {
+    *[stroke=\#000] {
+      stroke: theme.$white;
+    }
+
+    *[fill=\#000] {
+      fill: theme.$white;
+    }
+  }
+}
+
+:local(.enter-on-device-button) {
+  background-color: #1EA092;
+  border: none;
+  color: theme.$white;
+
+  &:hover {
+    background-color: #1EA092;
+    color: theme.$white;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
+  }
+
+  svg {
+    *[stroke=\#000] {
+      stroke: theme.$white;
+    }
+
+    *[fill=\#000] {
+      fill: theme.$white;
+    }
+  }
+}
+
+:local(.spectate-button) {
+  background-color: #F1BA4D;
+  border: none;
+  color: theme.$white;
+
+  &:hover {
+    background-color: #F1BA4D;
+    color: theme.$white;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
+  }
+
+  svg {
+    *[stroke=\#000] {
+      stroke: theme.$white;
+    }
+
+    *[fill=\#000] {
+      fill: theme.$white;
+    }
+  }
+}
+
+:local(.options-button) {
+  background-color: #FAF4EF;
+  border: none;
+  color: #0F1935;
+
+  &:hover {
+    background-color: #FAF4EF;
+    color: #0F1935;
+    filter: brightness(1.2);
+    transition: filter .2s ease-out;
+  }
+
+  svg {
+    *[stroke=\#000] {
+      stroke: #0F1935;
+    }
+
+    *[fill=\#000] {
+      fill: #0F1935;
+    }
+  }
+}
+
+:local(.horizon) {
+  border-bottom: 1px solid theme.$white;
 }

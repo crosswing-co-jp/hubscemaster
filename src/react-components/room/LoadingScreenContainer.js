@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
+import styles from "./LoadingScreenContainer.scss";
 import { useIntl } from "react-intl";
 import { LoadingScreen } from "./LoadingScreen";
 import { useRoomLoadingState } from "./hooks/useRoomLoadingState";
@@ -35,7 +36,7 @@ export function LoadingScreenContainer({ onLoaded, scene }) {
           {
             // eslint-disable-next-line react/display-name
             a: chunks => (
-              <a href="/whats-new" target="_blank">
+              <a className={styles.whatsNew} href="/whats-new" target="_blank">
                 {chunks}
               </a>
             )

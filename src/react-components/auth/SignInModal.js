@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
+import styles from "./SignInModal.scss";
 import { CloseButton } from "../input/CloseButton";
 import { Modal } from "../modal/Modal";
 import { FormattedMessage, useIntl, defineMessages } from "react-intl";
@@ -114,10 +115,8 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
         onChange={onChangeEmail}
         placeholder="example@example.com"
       />
-      <p>
-        <small>
-          <LegalMessage termsUrl={termsUrl} privacyUrl={privacyUrl} />
-        </small>
+      <p className={styles.legalMessage}>
+        <LegalMessage termsUrl={termsUrl} privacyUrl={privacyUrl} />
       </p>
       <NextButton type="submit" />
     </Column>
@@ -199,6 +198,7 @@ export function SignInModal({ closeable, onClose, children, ...rest }) {
     <Modal
       title={<FormattedMessage id="sign-in-modal.title" defaultMessage="Sign In" />}
       beforeTitle={closeable && <CloseButton onClick={onClose} />}
+      className={styles.signInModal}
       {...rest}
     >
       {children}
