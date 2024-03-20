@@ -48,6 +48,7 @@ export function MicSetupModal({
   appName,
   ...rest
 }) {
+  permissionStatus = "granted";
   const iconStyle = isMicrophoneEnabled ? styles.iconEnabled : styles.iconDisabled;
   const intl = useIntl();
   return (
@@ -161,7 +162,7 @@ export function MicSetupModal({
               <> {speakerLevelBar} </>
             </div>
             <div className={styles.actionContainer}>
-              <Button preset="basic" onClick={onPlaySound} sm>
+              <Button className={styles.testAudio} onClick={onPlaySound} sm>
                 <FormattedMessage id="mic-setup-modal.test-audio-button" defaultMessage="Test Audio" />
               </Button>
             </div>
@@ -180,7 +181,7 @@ export function MicSetupModal({
             )}
           </div>
         </div>
-        <Button preset="primary" onClick={onEnterRoom}>
+        <Button className={styles.enterRoomButton} onClick={onEnterRoom}>
           <FormattedMessage id="mic-setup-modal.enter-room-button" defaultMessage="Enter Room" />
         </Button>
       </Column>

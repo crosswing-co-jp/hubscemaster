@@ -7,6 +7,7 @@ import { Column } from "../layout/Column";
 import { FormattedMessage } from "react-intl";
 
 export function AvatarSettingsContent({
+  className,
   displayName,
   pronouns,
   displayNameInputRef,
@@ -37,6 +38,7 @@ export function AvatarSettingsContent({
           />
         }
         ref={displayNameInputRef}
+        labelClassName={className}
       />
       <TextInputField
         label={<FormattedMessage id="avatar-settings-content.pronouns-label" defaultMessage="Pronouns (optional)" />}
@@ -45,6 +47,7 @@ export function AvatarSettingsContent({
         spellCheck="false"
         onChange={onChangePronouns}
         ref={pronounsInputRef}
+        labelClassName={className}
       />
       <div className={styles.avatarPreviewContainer}>
         {avatarPreview || <div />}

@@ -1,0 +1,7 @@
+@use "../styles/theme.scss";
+
+:local(.sign-in-modal-container) {
+  background-size: cover;
+  // background-image: url(../../assets/images/bg_space.jpg);
+  background: #0F1935;
+}

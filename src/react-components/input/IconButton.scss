@@ -23,18 +23,22 @@
   }
 
   &:hover {
-    color: theme.$primary-color-hover;
+    color: #e15f6d;
 
     svg {
-      color: theme.$primary-color-hover;
+      color: #e15f6d;
     }
   }
 
   &:active {
-    color: theme.$primary-color-pressed;
+    color: #e15f6d;
+    filter: brightness(1.2);
+    transition: filter .2s ease-out;
 
     svg {
-      color: theme.$primary-color-pressed;
+      stroke: #e15f6d;
+      filter: brightness(1.2);
+      transition: filter .2s ease-out;
     }
   }
 

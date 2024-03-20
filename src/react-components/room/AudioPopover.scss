@@ -16,6 +16,10 @@
   max-width: none;
 }
 
+:local(.dropdown) {  
+  color: theme.$white;
+}
+
 :local(.buttons-container) {
   display: flex;
 }

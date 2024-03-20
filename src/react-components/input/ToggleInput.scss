@@ -14,8 +14,8 @@
   }
 
   &:focus-within :local(.track) {
-    border-color: theme.$active-color;
-    box-shadow: 0 0 0 2px theme.$active-color;
+    border-color: #e15f6d;
+    box-shadow: 0 0 0 2px #e15f6d;
   }
 }
 
@@ -28,6 +28,7 @@
   margin-left: 16px;
   display: flex;
   flex-direction: column;
+  color: theme.$white;
 }
 
 :local(.label) {
@@ -61,6 +62,6 @@
 :local(.toggle-input) input:checked + :local(.track) :local(.button) {
   left: auto;
   right: 1px;
-  background-color: theme.$active-color;
+  background-color: #e15f6d;
 }
 

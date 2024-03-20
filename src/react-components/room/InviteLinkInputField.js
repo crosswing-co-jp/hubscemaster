@@ -5,7 +5,7 @@ import { IconButton } from "../input/IconButton";
 import { FormattedMessage, useIntl } from "react-intl";
 import { CopyableTextInputField } from "../input/CopyableTextInputField";
 
-export function InviteLinkInputField({ fetchingInvite, inviteUrl, onRevokeInvite }) {
+export function InviteLinkInputField({ fetchingInvite, inviteUrl, onRevokeInvite, labelClassName }) {
   const intl = useIntl();
 
   const [showRevokeConfirmation, setShowRevokeConfirmation] = useState(false);
@@ -56,6 +56,7 @@ export function InviteLinkInputField({ fetchingInvite, inviteUrl, onRevokeInvite
         ))
       }
       fullWidth
+      labelClassName={labelClassName}
     />
   );
 }
@@ -63,5 +64,6 @@ export function InviteLinkInputField({ fetchingInvite, inviteUrl, onRevokeInvite
 InviteLinkInputField.propTypes = {
   fetchingInvite: PropTypes.bool,
   inviteUrl: PropTypes.string,
-  onRevokeInvite: PropTypes.func.isRequired
+  onRevokeInvite: PropTypes.func.isRequired,
+  labelClassName: PropTypes.string
 };
