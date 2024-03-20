@@ -5,11 +5,11 @@ import styles from "./InputField.scss";
 
 /* eslint-disable-next-line react/display-name */
 export const InputField = memo(
-  ({ id, htmlFor, label, error, description, className, fullWidth, children, ...rest }) => {
+  ({ id, htmlFor, label, error, description, className, labelClassName, fullWidth, children, ...rest }) => {
     return (
       <div className={classNames(styles.inputField, { [styles.fullWidth]: fullWidth }, className)} {...rest}>
         {label && (
-          <label id={id} className={styles.label} htmlFor={htmlFor}>
+          <label id={id} className={classNames(styles.label, labelClassName)} htmlFor={htmlFor}>
             {label}
           </label>
         )}
@@ -32,5 +32,6 @@ InputField.propTypes = {
   children: PropTypes.node,
   error: PropTypes.node,
   description: PropTypes.node,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  labelClassName: PropTypes.string
 };

@@ -1,5 +1,13 @@
 @use "../styles/theme.scss";
 
+:local(.label) {
+  color: theme.$text3-color;
+}
+
+:local(.toggle-input-label) {
+  color: theme.$text2-color;
+}
+
 :local(.room-permissions), :local(.permissions-group) {
   margin-left: 20px;
 

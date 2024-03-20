@@ -1,8 +1,10 @@
 import React, { useCallback, useReducer, useContext, useEffect } from "react";
+import styles from "./SignInModalContainer.scss";
 import { TERMS, PRIVACY } from "../../constants";
 import configs from "../../utils/configs";
 import { AuthContext } from "./AuthContext";
 import { SignInModal, SignInStep, WaitForVerification, SubmitEmail } from "./SignInModal";
+import { Center } from "../../react-components/layout/Center";
 
 const SignInAction = {
   submitEmail: "submitEmail",
@@ -64,24 +66,26 @@ export function SignInModalContainer() {
   }, [step, redirectUrl]);
 
   return (
-    <SignInModal disableFullscreen>
-      {step === SignInStep.submit ? (
-        <SubmitEmail
-          onSubmitEmail={submitEmail}
-          initialEmail={email}
-          signInReason={qs.get("sign_in_reason")}
-          termsUrl={configs.link("terms_of_use", TERMS)}
-          showTerms={configs.feature("show_terms")}
-          privacyUrl={configs.link("privacy_notice", PRIVACY)}
-          showPrivacy={configs.feature("show_privacy")}
-        />
-      ) : (
-        <WaitForVerification
-          onCancel={cancel}
-          email={email}
-          showNewsletterSignup={configs.feature("show_newsletter_signup")}
-        />
-      )}
-    </SignInModal>
+    <Center className={styles.signInModalContainer}>
+      <SignInModal disableFullscreen>
+        {step === SignInStep.submit ? (
+          <SubmitEmail
+            onSubmitEmail={submitEmail}
+            initialEmail={email}
+            signInReason={qs.get("sign_in_reason")}
+            termsUrl={configs.link("terms_of_use", TERMS)}
+            showTerms={configs.feature("show_terms")}
+            privacyUrl={configs.link("privacy_notice", PRIVACY)}
+            showPrivacy={configs.feature("show_privacy")}
+          />
+        ) : (
+          <WaitForVerification
+            onCancel={cancel}
+            email={email}
+            showNewsletterSignup={configs.feature("show_newsletter_signup")}
+          />
+        )}
+      </SignInModal>
+    </Center>
   );
 }

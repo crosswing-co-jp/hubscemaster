@@ -8,7 +8,6 @@ import { VerifyModalContainer } from "./react-components/auth/VerifyModalContain
 import "./react-components/styles/global.scss";
 import "./assets/stylesheets/globals.scss";
 import { PageContainer } from "./react-components/layout/PageContainer";
-import { Center } from "./react-components/layout/Center";
 import { ThemeProvider } from "./react-components/styles/theme";
 import { store } from "./utils/store-instance";
 
@@ -22,9 +21,7 @@ function VerifyRoot() {
       <ThemeProvider store={store}>
         <AuthContextProvider store={store}>
           <PageContainer>
-            <Center>
-              <VerifyModalContainer />
-            </Center>
+            <VerifyModalContainer />
           </PageContainer>
         </AuthContextProvider>
       </ThemeProvider>

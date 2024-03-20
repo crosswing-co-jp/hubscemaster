@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
+import styles from "./VerifyModalContainer.scss";
 import { AuthContext } from "./AuthContext";
 import { VerifyModal, VerificationError, EmailVerified, VerifyingEmail } from "./VerifyModal";
+import { Center } from "../../react-components/layout/Center";
 
 const VerificationStep = {
   verifying: "verifying",
@@ -54,5 +56,9 @@ export function VerifyModalContainer() {
     content = <VerifyingEmail />;
   }
 
-  return <VerifyModal>{content}</VerifyModal>;
+  return (
+    <Center className={styles.verifyModalContainer}>
+      <VerifyModal>{content}</VerifyModal>;
+    </Center>
+  );
 }
