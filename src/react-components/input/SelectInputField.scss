@@ -26,7 +26,7 @@ $input-height: 40px;
   }
 
   &:hover {
-    border-color: theme.$input-border-color-hover;
+    border-color: #e15f6d;
   }
 
   &:focus {
@@ -34,8 +34,8 @@ $input-height: 40px;
   }
 
   &:focus-within {
-    border-color: theme.$input-outline-color;
-    box-shadow: 0 0 0 2px theme.$input-outline-color;
+    border-color: #e15f6d;
+    box-shadow: 0 0 0 2px #e15f6d;
   }
 
   svg {
@@ -48,7 +48,7 @@ $input-height: 40px;
   top: $input-height + 4px;
   display: none;
   flex-direction: column;
-  background-color: theme.$input-bg-color;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   border-radius: 8px;
   padding: 8px 0;
   z-index: 99999;
@@ -80,6 +80,6 @@ $input-height: 40px;
 }
 
 :local(.highlighted-item) {
-  color: theme.$active-text-color;
-  background-color: theme.$active-color-hover;
+  color: theme.$white;
+  background-color: #e15f6d;
 }

@@ -27,7 +27,9 @@
   width: 100%;
   height: 40px;
   padding: 0 16px;
-  color: theme.$text1-color;
+  background: transparent;
+  border: none;
+  color: theme.$white;
   font-size: theme.$font-size-sm;
   font-weight: theme.$font-weight-medium;
 
@@ -65,22 +67,18 @@
   }
 
   &:hover, :global(body.keyboard-user) &:focus {
-    background-color: theme.$active-color-hover;
+    background-color: #e15f6d;
   }
 
   &:active {
-    background-color: theme.$active-color-pressed;
+    background-color: #e15f6d;
+    filter: brightness(1.2);
+    transition: filter .2s ease-out;
   }
 
   :global(body.keyboard-user) &:focus {
     box-shadow: inset 0 0 0 3px theme.$outline-color;
   }
-}
-
-button:local(.more-menu-item-target) {
-  background: transparent;
-  border: none;
-  color: theme.$white;
 }
 
 :local(.compact-button) {

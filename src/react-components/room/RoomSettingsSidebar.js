@@ -77,6 +77,7 @@ export function RoomSettingsSidebar({
           label={<FormattedMessage id="room-settings-sidebar.name" defaultMessage="Room Name" />}
           error={errors?.name?.message}
           fullWidth
+          labelClassName={styles.label}
           {...register("name")}
         />
         <TextAreaInputField
@@ -89,6 +90,7 @@ export function RoomSettingsSidebar({
           minRows={3}
           error={errors?.description?.message}
           fullWidth
+          labelClassName={styles.label}
           {...register("description")}
         />
         <NumericInputField
@@ -103,10 +105,12 @@ export function RoomSettingsSidebar({
           error={errors?.room_size?.message}
           fullWidth
           {...register("room_size")}
+          labelClassName={styles.label}
         />
         <RadioInputField
           label={<FormattedMessage id="room-settings-sidebar.room-access" defaultMessage="Room Access" />}
           fullWidth
+          labelClassName={styles.label}
         >
           <RadioInputOption
             value="allow"
@@ -134,11 +138,17 @@ export function RoomSettingsSidebar({
           />
         </RadioInputField>
         {entryMode === "invite" && (
-          <InviteLinkInputField fetchingInvite={fetchingInvite} inviteUrl={inviteUrl} onRevokeInvite={onRevokeInvite} />
+          <InviteLinkInputField
+            fetchingInvite={fetchingInvite}
+            inviteUrl={inviteUrl}
+            onRevokeInvite={onRevokeInvite}
+            labelClassName={styles.label}
+          />
         )}
         {showPublicRoomSetting && (
           <ToggleInput
             label={<FormattedMessage id="room-settings-sidebar.access-public" defaultMessage="Public" />}
+            labelClassName={styles.toggleInputLabel}
             description={
               <FormattedMessage
                 id="room-settings-sidebar.access-public-description"
@@ -151,14 +161,17 @@ export function RoomSettingsSidebar({
         <InputField
           label={<FormattedMessage id="room-settings-sidebar.permissions" defaultMessage="Room Member Permissions" />}
           fullWidth
+          labelClassName={styles.label}
         >
           <div className={styles.roomPermissions}>
             <ToggleInput
               label={<FormattedMessage id="room-settings-sidebar.voice-chat" defaultMessage="Voice chat" />}
+              labelClassName={styles.toggleInputLabel}
               {...register("member_permissions.voice_chat")}
             />
             <ToggleInput
               label={<FormattedMessage id="room-settings-sidebar.text-chat" defaultMessage="Text chat" />}
+              labelClassName={styles.toggleInputLabel}
               {...register("member_permissions.text_chat")}
             />
             <ToggleInput
@@ -168,30 +181,36 @@ export function RoomSettingsSidebar({
                   defaultMessage="Create and move objects"
                 />
               }
+              labelClassName={styles.toggleInputLabel}
               {...register("member_permissions.spawn_and_move_media")}
             />
             <div className={styles.permissionsGroup}>
               <ToggleInput
                 label={<FormattedMessage id="room-settings-sidebar.spawn-camera" defaultMessage="Create cameras" />}
                 disabled={!spawnAndMoveMedia}
+                labelClassName={styles.toggleInputLabel}
                 {...register("member_permissions.spawn_camera")}
               />
               <ToggleInput
                 label={<FormattedMessage id="room-settings-sidebar.pin-objects" defaultMessage="Pin objects" />}
                 disabled={!spawnAndMoveMedia}
+                labelClassName={styles.toggleInputLabel}
                 {...register("member_permissions.pin_objects")}
               />
             </div>
             <ToggleInput
               label={<FormattedMessage id="room-settings-sidebar.spawn-drawing" defaultMessage="Create drawings" />}
+              labelClassName={styles.toggleInputLabel}
               {...register("member_permissions.spawn_drawing")}
             />
             <ToggleInput
               label={<FormattedMessage id="room-settings-sidebar.spawn-emoji" defaultMessage="Create emoji" />}
+              labelClassName={styles.toggleInputLabel}
               {...register("member_permissions.spawn_emoji")}
             />
             <ToggleInput
               label={<FormattedMessage id="room-settings-sidebar.fly" defaultMessage="Allow flying" />}
+              labelClassName={styles.toggleInputLabel}
               {...register("member_permissions.fly")}
             />
           </div>
@@ -199,6 +218,7 @@ export function RoomSettingsSidebar({
         <InputField
           label={<FormattedMessage id="room-settings-sidebar.bitecs-client" defaultMessage="bitECS based Client" />}
           fullWidth
+          labelClassName={styles.label}
         >
           <ToggleInput
             label={
@@ -213,6 +233,7 @@ export function RoomSettingsSidebar({
                 defaultMessage="Enable or disable the new Client, which is implemented with bitECS for simplicity and extensibility."
               />
             }
+            labelClassName={styles.toggleInputLabel}
             {...register("user_data.hubs_use_bitecs_based_client")}
           />
         </InputField>

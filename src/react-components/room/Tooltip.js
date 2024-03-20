@@ -166,10 +166,10 @@ function WelcomeNavigationBar({ onNext, onDismiss }) {
   const intl = useIntl();
   return (
     <div className={styles.navigationContainer}>
-      <Button preset="primary" className={classNames(styles.tutorialStartBtn)} onClick={onNext}>
+      <Button preset="primary" onClick={onNext}>
         {intl.formatMessage(onboardingMessages["tips.buttons.get-started"])}
       </Button>
-      <Button preset="basic" className={classNames(styles.tutorialSkipBtn)} onClick={onDismiss}>
+      <Button preset="cancel" onClick={onDismiss}>
         {intl.formatMessage(onboardingMessages["tips.buttons.skip-tour"])}
       </Button>
     </div>
