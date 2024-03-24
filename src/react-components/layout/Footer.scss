@@ -3,6 +3,7 @@
 footer {
   display: block;
   background-color: #0F1935;
+  border-top: 1px solid var(--border1-color);
   font-size: theme.$font-size-md;
   padding: 20px;
 
@@ -34,8 +35,18 @@ footer {
     }
 
     a {
-      color: theme.$text1-color;
       font-weight: bold;
+      color: theme.$white;
+
+      &:hover {
+        color: #e15f6d;
+      }
+    
+      &:active {
+        color: #e15f6d;
+        filter: brightness(1.2);
+        transition: filter .2s ease-out;
+      }
     }
 
     li {
@@ -64,29 +75,38 @@ footer {
 
 :local(.powered-by) {
   text-align: center;
-  background-color:#ffffff0f;
   color: theme.$white;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   @media(min-width: theme.$breakpoint-lg) {
-    margin: 15px 0 15px 20px;
-    padding: 15px;
+    margin-right: 20px;
   }
 }
 
 :local(.powered-by-link) {
   margin-top: 5px;
+  color: #1EA092;
+
+  &:hover {
+    color: #1EA092;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
+  }
 }
 
 :local(.company-logo) {
   height: 49px;
-
+  
   @media(min-width: theme.$breakpoint-lg) {
     margin-left: 18px;
     height: 41px;
   }
+}
+
+:local(.company-logo-background-color-white) {
+  background-color: rgb(255, 255, 255);
 }
 
 :local(.discord-logo) {

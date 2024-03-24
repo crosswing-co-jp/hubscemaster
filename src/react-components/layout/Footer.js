@@ -19,6 +19,11 @@ export function Footer({
   appName,
   isHmc
 }) {
+  let companyLogoBackgroundColorWhite = null;
+  if (companyLogoUrl === "https://hubs.meta-box.space/files/3bd6d514-b472-4f5f-abe1-34dd01d6c522.png") {
+    companyLogoBackgroundColorWhite = styles.companyLogoBackgroundColorWhite;
+  }
+  
   return (
     <footer>
       <Container as="div" className={styles.container}>
@@ -30,7 +35,7 @@ export function Footer({
               values={{
                 // eslint-disable-next-line react/display-name
                 a: chunks => (
-                  <a className={classNames(styles.link, styles.poweredByLink)} href="https://hubs.mozilla.com/cloud">
+                  <a className={styles.poweredByLink} href="https://hubs.mozilla.com/cloud">
                     {chunks}
                   </a>
                 )
@@ -93,7 +98,7 @@ export function Footer({
               <li>
                 <a href="https://www.cross-wing.co.jp/" target="_blank" rel="noopener noreferrer">
                   <img
-                    className={styles.companyLogo}
+                    className={classNames(styles.companyLogo, companyLogoBackgroundColorWhite)}
                     src={companyLogoUrl}
                     alt={<FormattedMessage id="footer.logo-alt" defaultMessage="Logo" />}
                   />
