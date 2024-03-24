@@ -3,6 +3,7 @@
 header {
   display: block;
   background-color: #0F1935;
+  border-bottom: 1px solid var(--border1-color);
 
   @media(min-width: theme.$breakpoint-lg) {
     padding: 0;
@@ -37,7 +38,17 @@ header {
     a {
       margin: 0 16px;
       font-size: theme.$font-size-md;
-      color: theme.$text1-color;
+      color: theme.$white;
+
+      &:hover {
+        color: #e15f6d;
+      }
+    
+      &:active {
+        color: #e15f6d;
+        filter: brightness(1.2);
+        transition: filter .2s ease-out;
+      }
     }
 
     ul {
