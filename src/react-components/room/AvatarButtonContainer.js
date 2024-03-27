@@ -1,17 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ReactComponent as AvatarIcon } from "../icons/Avatar.svg";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { ToolbarButton } from "../input/ToolbarButton";
+import { ToolTip } from "@mozilla/lilypad-ui";
 
 export function AvatarButtonContainer({ mediaSearchStore }) {
+  const intl = useIntl();
+
+  const description = intl.formatMessage({
+    id: "avatar-tooltip.description",
+    defaultMessage: "Change avatar"
+  });
+
   return (
-    <ToolbarButton
-      icon={<AvatarIcon />}
-      onClick={() => mediaSearchStore.sourceNavigate("avatars")}
-      label={<FormattedMessage id="place-popover.item-type.avatar" defaultMessage="Avatar" />}
-      preset={"accent1"}
-    />
+    <ToolTip description={description}>
+      <ToolbarButton
+        icon={<AvatarIcon />}
+        onClick={() => mediaSearchStore.sourceNavigate("avatars")}
+        label={<FormattedMessage id="place-popover.item-type.avatar" defaultMessage="Avatar" />}
+        preset={"accent1"}
+      />
+    </ToolTip>
   );
 }
 
