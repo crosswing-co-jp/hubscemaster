@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { ReactComponent as CameraIcon } from "../icons/Camera.svg";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { anyEntityWith } from "../../utils/bit-utils";
 import { MyCameraTool } from "../../bit-components";
 import { ToolbarButton } from "../input/ToolbarButton";
+import { ToolTip } from "@mozilla/lilypad-ui";
 
 export function CameraButtonContainer({ scene, hubChannel }) {
   const [item, setItem] = useState({});
+  const intl = useIntl();
+
+  const description = intl.formatMessage({
+    id: "camera-tooltip.description",
+    defaultMessage: "Take photos and videos with the camera"
+  });
 
   useEffect(
     () => {
@@ -49,13 +56,15 @@ export function CameraButtonContainer({ scene, hubChannel }) {
   );
 
   return (
-    <ToolbarButton
-      icon={item?.icon}
-      selected={item?.selected}
-      onClick={item?.onSelect}
-      label={item?.label}
-      preset={item?.color}
-    />
+    <ToolTip description={description}>
+      <ToolbarButton
+        icon={item?.icon}
+        selected={item?.selected}
+        onClick={item?.onSelect}
+        label={item?.label}
+        preset={item?.color}
+      />
+    </ToolTip>
   );
 }
 

@@ -2,10 +2,18 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { ReactComponent as EyeIcon } from "../icons/Eye.svg";
 import { ToolbarButton } from "../input/ToolbarButton";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { CAMERA_MODE_THIRD_PERSON_VIEW, CAMERA_MODE_FIRST_PERSON } from "../../systems/camera-system";
+import { ToolTip } from "@mozilla/lilypad-ui";
 
 export function ToggleTpsButtonContainer({ store, scene }) {
+  const intl = useIntl();
+
+  const description = intl.formatMessage({
+    id: "third-person-tooltip.description",
+    defaultMessage: "Switch between first-person and third-person views"
+  });
+
   const storeKey = "enableThirdPersonView";
   const value = store.state.preferences[storeKey];
 
@@ -32,14 +40,16 @@ export function ToggleTpsButtonContainer({ store, scene }) {
   );
 
   return (
-    <ToolbarButton
-      icon={<EyeIcon />}
-      label={<FormattedMessage id="third-person-button-container" defaultMessage="Third Person" />}
-      preset={"accent1"}
-      onClick={() => {
-        setValue(!value);
-      }}
-    />
+    <ToolTip description={description}>
+      <ToolbarButton
+        icon={<EyeIcon />}
+        label={<FormattedMessage id="third-person-button-container" defaultMessage="Third Person" />}
+        preset={"accent1"}
+        onClick={() => {
+          setValue(!value);
+        }}
+      />
+    </ToolTip>
   );
 }
 
