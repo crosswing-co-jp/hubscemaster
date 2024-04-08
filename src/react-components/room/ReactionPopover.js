@@ -108,7 +108,7 @@ export function ReactionPopoverButton({ items, presence, onToggleHandRaised }) {
       disableFullscreen={isTooltipVisible}
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
-        <ToolTip description={description}>
+        <ToolTip description={description} location="right" category="tertiary">
           <ToolbarButton
             ref={triggerRef}
             icon={

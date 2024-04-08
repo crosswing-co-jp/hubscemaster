@@ -28,7 +28,7 @@ export const AudioPopoverButton = ({ initiallyVisible, content, micButton, disab
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
         <div className={styles.buttonsContainer}>
-          <ToolTip description={title}>
+          <ToolTip description={title} location="right" category="tertiary">
             <ToolbarButton
               ref={triggerRef}
               icon={<ArrowIcon />}

@@ -40,7 +40,7 @@ export function ToggleTpsButtonContainer({ store, scene }) {
   );
 
   return (
-    <ToolTip description={description}>
+    <ToolTip description={description} location="left" category="tertiary">
       <ToolbarButton
         icon={<EyeIcon />}
         label={<FormattedMessage id="third-person-button-container" defaultMessage="Third Person" />}
