@@ -56,7 +56,7 @@ export function CameraButtonContainer({ scene, hubChannel }) {
   );
 
   return (
-    <ToolTip description={description}>
+    <ToolTip description={description} location="left" category="tertiary">
       <ToolbarButton
         icon={item?.icon}
         selected={item?.selected}
