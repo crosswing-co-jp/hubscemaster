@@ -90,7 +90,7 @@ export function InvitePopoverButton({
       popoverApiRef={popoverApiRef}
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
-        <ToolTip description={description}>
+        <ToolTip description={description} location="right" category="tertiary">
           <ToolbarButton
             ref={triggerRef}
             icon={<InviteIcon />}

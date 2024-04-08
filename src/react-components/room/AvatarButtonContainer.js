@@ -14,7 +14,7 @@ export function AvatarButtonContainer({ mediaSearchStore }) {
   });
 
   return (
-    <ToolTip description={description}>
+    <ToolTip description={description} location="left" category="tertiary">
       <ToolbarButton
         icon={<AvatarIcon />}
         onClick={() => mediaSearchStore.sourceNavigate("avatars")}

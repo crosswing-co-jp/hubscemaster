@@ -41,7 +41,7 @@ export const AudioPopoverButtonContainer = ({ scene, initiallyVisible }) => {
       initiallyVisible={initiallyVisible}
       content={<AudioPopoverContentContainer scene={scene} />}
       micButton={
-        <ToolTip description={description}>
+        <ToolTip description={description} location="right" category="tertiary">
           <ToolbarMicButton
             scene={scene}
             icon={isMicMuted || !canVoiceChat || micPermissionDenied ? <MicrophoneMutedIcon /> : <MicrophoneIcon />}
