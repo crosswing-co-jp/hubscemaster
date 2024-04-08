@@ -37,7 +37,7 @@ export function PlacePopoverButton({ items }) {
       offsetDistance={28}
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
-        <ToolTip description={description}>
+        <ToolTip description={description} location="right" category="tertiary">
           <ToolbarButton
             ref={triggerRef}
             icon={<ObjectIcon />}

@@ -59,7 +59,7 @@ export function SharePopoverButton({ items }) {
       disableFullscreen
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
-        <ToolTip description={description}>
+        <ToolTip description={description} location="right" category="tertiary">
           <ToolbarButton
             ref={triggerRef}
             icon={<ShareIcon />}

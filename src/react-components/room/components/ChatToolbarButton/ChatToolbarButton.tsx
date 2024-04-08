@@ -23,7 +23,8 @@ const ChatToolbarButton = ({ onClick, selected }: ChatToolbarButtonProps) => {
   const description = intl.formatMessage(chatTooltipDescription);
 
   return (
-    <ToolTip description={description}>
+    // @ts-ignore
+    <ToolTip description={description} location="left" category="tertiary">
       <ToolbarButton
         // Ignore type lint error as we will be redoing ToolbarButton in the future
         // @ts-ignore
