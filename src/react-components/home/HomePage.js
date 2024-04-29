@@ -155,6 +155,7 @@ export function HomePage() {
                     processThumbnailUrl={(entry, width, height) =>
                       scaledThumbnailUrlFor(entry.images.preview.url, width, height)
                     }
+                    isHomePage
                   />
                 );
               })}
@@ -177,6 +178,7 @@ export function HomePage() {
                     processThumbnailUrl={(entry, width, height) =>
                       scaledThumbnailUrlFor(entry.images.preview.url, width, height)
                     }
+                    isHomePage
                   />
                 );
               })}
