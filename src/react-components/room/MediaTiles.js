@@ -139,32 +139,30 @@ export function MediaTile({ entry, processThumbnailUrl, onClick, onEdit, onShowS
           {creator && creator.name === undefined && <span>{creator}</span>}
           {creator && creator.name && !creator.url && <span>{creator.name}</span>}
           {creator && creator.name && creator.url && (
-            <a href={creator.url} target="_blank" rel="noopener noreferrer">
+            <a href={creator.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
               {creator.name}
             </a>
           )}
           {publisherName && (
             <>
-              <a href={entry.url} target="_blank" rel="noopener noreferrer">
-                <ExternalLinkIcon /> {publisherName}
+              <a href={entry.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                <ExternalLinkIcon className={styles.link} /> {publisherName}
               </a>
             </>
           )}
           {entry.last_activated_at && (
-            <small>
-              <FormattedMessage
-                id="media-tile.joined-room"
-                defaultMessage="Joined {relativeTime}"
-                values={{
-                  relativeTime: (
-                    <FormattedRelativeTime
-                      updateIntervalInSeconds={10}
-                      value={(new Date(entry.last_activated_at).getTime() - Date.now()) / 1000}
-                    />
-                  )
-                }}
-              />
-            </small>
+            <FormattedMessage
+              id="media-tile.joined-room"
+              defaultMessage="Joined {relativeTime}"
+              values={{
+                relativeTime: (
+                  <FormattedRelativeTime
+                    updateIntervalInSeconds={10}
+                    value={(new Date(entry.last_activated_at).getTime() - Date.now()) / 1000}
+                  />
+                )
+              }}
+            />
           )}
         </>
       }

@@ -9,8 +9,8 @@ $semi-bold: 600;
   top: 0px;
   width: 100%;
   height: 100%;
-  background: theme.$background1-color;
-  color: theme.$text1-color;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  color: theme.$white;
 }
 
 :local(.preferences-panel) {
@@ -38,7 +38,6 @@ $semi-bold: 600;
     color: theme.$text1-color;;
     padding: 0px;
     margin: 0px;
-    background: transparent;
     line-height: 30px;
     font-size: $fontSize;
     text-align: center;
@@ -89,9 +88,9 @@ $semi-bold: 600;
   border-bottom: 3px solid transparent;
   &:local(.selected) {
     @extend %font-nav-item-selected;
-    border-bottom: 3px solid theme.$active-color;
+    border-bottom: 3px solid #E15F6D;
   }
-  color: theme.$text1-color;
+  color: theme.$white;
 }
 
 :local(.max-resolution-preference-item) {
@@ -237,7 +236,8 @@ $semi-bold: 600;
   flex-flow: column;
   align-items: center;
   border-radius: 16px 16px 0px 0px;
-  background-color: theme.$tile-bg-color;
+  background-color: silver;
+  color: black;
   &>* {
     margin: 16px 16px 0px 16px;
   }
@@ -261,7 +261,7 @@ $semi-bold: 600;
   cursor: pointer;
   @extend %no-default-button-style;
   @extend %reset-to-default-button-size;
-  color: theme.$text2-color;
+  color: silver;
   @media(hover: hover){
     &:hover {
       color: theme.$primary-color;
@@ -322,7 +322,7 @@ $semi-bold: 600;
     &::after {
       content: ' ';
       position: absolute;
-      background: theme.$active-color;
+      background: #E15F6D;
       border-radius: 6px;
     }
 
@@ -344,7 +344,7 @@ $semi-bold: 600;
   @extend %default-font;
   font-weight: normal;
   text-transform: uppercase;
-  color: theme.$text2-color;
+  color: silver;
   margin: 0px 0px 16px 16px;
   font-size: $fontSize;
 }
