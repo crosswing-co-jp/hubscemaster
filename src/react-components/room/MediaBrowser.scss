@@ -19,6 +19,7 @@
 
 :local(.button-nav) > * {
   margin-right: theme.$spacing-sm;
+  border-radius: 8px;
 }
 
 :local(.button-nav) > :last-child {
@@ -26,7 +27,8 @@
 }
 
 :local(.facets-nav) {
-  background-color: theme.$background2-color;
+  background-color: rgba(255,255,255,.0588235294);
+  backdrop-filter: blur(34.3013000488px);
 }
 
 :local(.content) {
@@ -46,7 +48,7 @@
 :local(.pager-button) {
   border: none;
   border-radius: 24px;
-  background-color: theme.$primary-color;
+  background-color: #E15F6D;
   height: 48px;
   width: 48px;
   margin: 32px;
@@ -59,11 +61,8 @@
   }
 
   &:hover {
-    background-color: theme.$primary-color-hover;
-  }
-
-  &:active {
-    background-color: theme.$primary-color-pressed;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
   }
 
   &:disabled {

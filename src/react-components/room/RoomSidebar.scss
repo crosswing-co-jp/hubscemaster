@@ -1,9 +1,13 @@
 @use "../styles/theme.scss";
 
+:local(.room-sidebar) {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  color: theme.$white;
+}
+
 :local(.section-title) {
   font-size: theme.$font-size-sm;
   font-weight: theme.$font-weight-bold;
-  color: theme.$text2-color;
   margin-bottom: 16px;
   margin-top: 16px;
 
@@ -27,20 +31,14 @@
   margin-bottom: 16px;
 }
 
-:local(.scene-name) {
-  color: theme.$text2-color;
-}
-
 :local(.scene-creator) {
   margin-top: 4px;
   font-size: theme.$font-size-sm;
-  color: theme.$text2-color;
 }
 
 :local(.attribution) {
   font-size: theme.$font-size-sm;
   margin-top: 8px;
-  color: theme.$text2-color;
 
   &:first-child {
     margin-top: 0;
@@ -53,4 +51,14 @@
 
 :local(.attribution-author) {
   margin-top: 4px;
+}
+
+:local(.link) {
+  color: #1EA092;
+
+  &:hover {
+    color: #1EA092;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
+  }
 }

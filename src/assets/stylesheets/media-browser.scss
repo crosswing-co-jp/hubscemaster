@@ -1,0 +1,11 @@
+@use "../../react-components/styles/theme.scss";
+
+:local(.link) {
+  color: #1EA092;
+
+  &:hover {
+    color: #1EA092;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
+  }
+}

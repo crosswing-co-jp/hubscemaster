@@ -1,11 +1,8 @@
 @use "../styles/theme.scss";
 
-:local(.label) {
-  color: theme.$text3-color;
-}
-
-:local(.toggle-input-label) {
-  color: theme.$text2-color;
+:local(.room-settings-sidebar) {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  color: theme.$white;
 }
 
 :local(.room-permissions), :local(.permissions-group) {
@@ -22,5 +19,11 @@
 
 :local(.confirm-revoke-button) {
   display: inline;
-  color: theme.$link-color;
+  color: #1EA092;
+  
+  &:hover {
+    color: #1EA092;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
+  }
 }

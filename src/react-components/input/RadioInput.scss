@@ -56,15 +56,12 @@
   }
 
   &:checked::after {
-    background-color: theme.$active-color;
+    background-color: #E15F6D;
   }
 
   &:checked:hover::after {
-    background-color: theme.$active-color-hover;
-  }
-
-  &:checked:active::after {
-    background-color: theme.$active-color-pressed;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
   }
 }
 
@@ -72,13 +69,11 @@
   display: flex;
   flex-direction: column;
   margin-left: 8px;
-  color: theme.$text2-color;
 }
 
 :local(.label) {
   font-size: theme.$font-size-sm;
   font-weight: theme.$font-weight-bold;
-  color: theme.$text1-color;
 }
 
 :local(.description) {

@@ -115,7 +115,7 @@
 
 :local(.info) {
   margin-top: 8px;
-  color: theme.$text1-color;
+  color: theme.$white;
 
   & > * {
     white-space: nowrap;
@@ -130,6 +130,7 @@
 :local(.description) {
   display: flex;
   justify-content: space-between;
+  color: silver;
 
   & > * {
     display: flex;
@@ -143,18 +144,6 @@
   svg {
     width: 12px;
     height: 12px;
-  }
-
-  a svg {
-    color: theme.$link-color;
-
-    &:hover {
-      color: theme.$link-color-hover;
-    }
-
-    &:active {
-      color: theme.$link-color-pressed;
-    }
   }
 }
 
@@ -180,5 +169,15 @@
   svg {
     margin-bottom: 16px;
     color: theme.$tile-text-color;
+  }
+}
+
+:local(.link) {
+  color: #1EA092;
+
+  &:hover {
+    color: #1EA092;
+    filter: brightness(1.1);
+    transition: filter .2s ease-out;
   }
 }
