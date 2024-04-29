@@ -50,7 +50,7 @@ function useThumbnail(entry, processThumbnailUrl) {
   return [thumbnailUrl, thumbnailWidth, thumbnailHeight];
 }
 
-function BaseTile({ as: TileComponent, className, name, description, tall, wide, children, ...rest }) {
+function BaseTile({ as: TileComponent, className, name, description, tall, wide, isHomePage, children, ...rest }) {
   let additionalProps;
 
   if (TileComponent === "div") {
@@ -68,9 +68,13 @@ function BaseTile({ as: TileComponent, className, name, description, tall, wide,
     >
       <div className={styles.thumbnailContainer}>{children}</div>
       {(name || description) && (
-        <div className={styles.info}>
+        <div className={classNames(styles.info, isHomePage && styles.homePageInfo)}>
           <b>{name}</b>
-          {description && <small className={styles.description}>{description}</small>}
+          {description && (
+            <small className={classNames(styles.description, isHomePage && styles.homePageDescription)}>
+              {description}
+            </small>
+          )}
         </div>
       )}
     </TileComponent>
@@ -84,7 +88,8 @@ BaseTile.propTypes = {
   description: PropTypes.node,
   children: PropTypes.node,
   tall: PropTypes.bool,
-  wide: PropTypes.bool
+  wide: PropTypes.bool,
+  isHomePage: PropTypes.bool,
 };
 
 BaseTile.defaultProps = {
@@ -120,7 +125,17 @@ CreateTile.propTypes = {
   type: PropTypes.string
 };
 
-export function MediaTile({ entry, processThumbnailUrl, onClick, onEdit, onShowSimilar, onCopy, onInfo, ...rest }) {
+export function MediaTile({
+  entry,
+  processThumbnailUrl,
+  onClick,
+  onEdit,
+  onShowSimilar,
+  onCopy,
+  onInfo,
+  isHomePage,
+  ...rest
+}) {
   const intl = useIntl();
   const creator = entry.attributions && entry.attributions.creator;
   const publisherName =
@@ -166,6 +181,7 @@ export function MediaTile({ entry, processThumbnailUrl, onClick, onEdit, onShowS
           )}
         </>
       }
+      isHomePage={isHomePage}
       {...rest}
     >
       <a className={styles.thumbnailLink} href={entry.url} rel="noreferrer noopener" onClick={onClick}>
@@ -263,5 +279,6 @@ MediaTile.propTypes = {
   onEdit: PropTypes.func,
   onShowSimilar: PropTypes.func,
   onCopy: PropTypes.func,
-  onInfo: PropTypes.func
+  onInfo: PropTypes.func,
+  isHomePage: PropTypes.bool,
 };
