@@ -477,6 +477,7 @@ export function ChatSidebar({ onClose, children, ...rest }) {
     <Sidebar
       title={<FormattedMessage id="chat-sidebar.title" defaultMessage="Chat" />}
       beforeTitle={<CloseButton onClick={onClose} />}
+      className={styles.chatSidebar}
       contentClassName={styles.content}
       disableOverflowScroll
       {...rest}

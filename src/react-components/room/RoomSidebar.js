@@ -23,7 +23,7 @@ function SceneAttribution({ attribution }) {
     return (
       <li className={styles.attribution}>
         <div className={styles.attributionName}>
-          <a href={attribution.url} target="_blank" rel="noopener noreferrer">
+          <a href={attribution.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
             {name}
           </a>
         </div>
@@ -106,7 +106,7 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
       </h2>
       <div className={styles.sceneScreenshotContainer}>
         {showSceneLink ? (
-          <a href={scene.url} target="_blank" rel="noopener noreferrer">
+          <a href={scene.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
             <img className={styles.sceneScreenshotImage} src={scene.screenshot_url} />
           </a>
         ) : (
@@ -115,13 +115,13 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
       </div>
       <div className={styles.sceneInfo}>
         {showSceneLink ? (
-          <b className={styles.sceneName}>
-            <a href={scene.url} target="_blank" rel="noopener noreferrer">
+          <b>
+            <a href={scene.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
               {scene.name}
             </a>
           </b>
         ) : (
-          <b className={styles.sceneName}>{scene.name}</b>
+          <b>{scene.name}</b>
         )}
         <div className={styles.sceneCreator}>
           <FormattedMessage
@@ -171,6 +171,7 @@ export function RoomSidebar({ room, accountId, onClose, canEdit, onEdit, onChang
           </IconButton>
         )
       }
+      className={styles.roomSidebar}
     >
       <Column padding>
         <InputField label={<FormattedMessage id="room-sidebar.room-name" defaultMessage="Name" />}>

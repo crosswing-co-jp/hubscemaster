@@ -8,6 +8,7 @@ $input-height: 40px;
   height: $input-height;
   border: 1px solid theme.$input-border-color;
   border-radius: theme.$border-radius-regular;
+  background-color: theme.$white;
   color: theme.$text1-color;
   overflow: hidden;
 

@@ -26,7 +26,7 @@
     // MIT License
 
     $track-color: theme.$toggle-button-color !default;
-    $thumb-color: theme.$primary-color !default;
+    $thumb-color: #E15F6D !default;
 
     $thumb-radius: 15px !default;
     $thumb-height: 30px !default;
@@ -34,7 +34,7 @@
     $thumb-shadow-size: 0px !default;
     $thumb-shadow-blur: 0px !default;
     $thumb-border-width: 5px !default;
-    $thumb-border-color: theme.$primary-color !default;
+    $thumb-border-color: #E15F6D !default;
 
     $track-width: 100% !default;
     $track-height: 9px !default;
@@ -108,5 +108,5 @@
 }
 
 :export {
-  trackColor: theme.$primary-color;
+  trackColor: #E15F6D;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage, defineMessages } from "react-intl";
+import styles from "../assets/stylesheets/media-browser.scss";
 import configs from "../utils/configs";
 import { pushHistoryPath, pushHistoryState, sluglessPath } from "../utils/history";
 import { SOURCES } from "../storage/media-search-store";
@@ -395,7 +396,7 @@ class MediaBrowserContainer extends Component {
           {poweredByMessages[urlSource] ? intl.formatMessage(poweredByMessages[urlSource]) : ""}
           {poweredByMessages[urlSource] && PRIVACY_POLICY_LINKS[urlSource] ? " | " : ""}
           {PRIVACY_POLICY_LINKS[urlSource] && (
-            <a href={PRIVACY_POLICY_LINKS[urlSource]} target="_blank" rel="noreferrer noopener">
+            <a href={PRIVACY_POLICY_LINKS[urlSource]} target="_blank" rel="noreferrer noopener" className={styles.link}>
               <FormattedMessage id="media-browser.privacy_policy" defaultMessage="Privacy Policy" />
             </a>
           )}
@@ -408,7 +409,7 @@ class MediaBrowserContainer extends Component {
             <>
               {intl.formatMessage(poweredByMessages.scenes, {
                 editorName: (
-                  <a href="/spoke" target="_blank" rel="noreferrer noopener">
+                  <a href="/spoke" target="_blank" rel="noreferrer noopener" className={styles.link}>
                     {configs.translation("editor-name")}
                   </a>
                 )
@@ -421,6 +422,7 @@ class MediaBrowserContainer extends Component {
               target="_blank"
               rel="noopener noreferrer"
               href={configs.link("issue_report", "https://hubs.mozilla.com/docs/help.html")}
+              className={styles.link}
             >
               <FormattedMessage id="media-browser.report-issue" defaultMessage="Report Issue" />
             </a>
