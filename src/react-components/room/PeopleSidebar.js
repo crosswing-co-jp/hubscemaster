@@ -141,6 +141,7 @@ export function PeopleSidebar({
           </IconButton>
         ) : undefined
       }
+      className={styles.peopleSidebar}
     >
       {!canVoiceChat && <PermissionNotification permission={"voice_chat"} />}
       {!voiceChatEnabled && isMod && <PermissionNotification permission={"voice_chat"} isMod={true} />}
@@ -158,8 +159,10 @@ export function PeopleSidebar({
                 onClick={e => onSelectPerson(person, e)}
               >
                 {person.hand_raised && <HandRaisedIcon />}
-                {<DeviceIcon title={getDeviceLabel(person.context, intl)} />}
-                {!person.context.discord && VoiceIcon && <VoiceIcon title={getVoiceLabel(person.micPresence, intl)} />}
+                {<DeviceIcon title={getDeviceLabel(person.context, intl)} className={styles.deviceIcon} />}
+                {!person.context.discord && VoiceIcon && (
+                  <VoiceIcon title={getVoiceLabel(person.micPresence, intl)} className={styles.voiceIcon} />
+                )}
                 {!person.isMe && (
                   <ToolTip
                     classProp="tooltip"

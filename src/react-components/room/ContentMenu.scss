@@ -6,12 +6,16 @@
   right: 8px;
   display: flex;
   flex-direction: row;
-  background-color: theme.$button-bg-color;
-  border: 1px solid theme.$button-border-color;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  color: theme.$white;
+  border: 1px solid var(--border1-color);
   border-radius: 12px;
   pointer-events: auto;
-  padding: 4px;
-  color: theme.$text1-color;
+  padding: 8px;
+
+  @media (max-width: theme.$breakpoint-sm) {
+    padding: 4px;
+  }
 
   @media (min-width: theme.$breakpoint-lg) {
     top: 24px;
@@ -25,10 +29,15 @@
   border: none;
   border-radius: 8px;
   background-color: theme.$transparent;
-  font-size: theme.$font-size-xs;
+  font-size: 11px;
   font-weight: theme.$font-weight-bold;
   align-items: center;
-  padding: 8px 10px;
+  padding: 9px 12px;
+
+  @media (max-width: theme.$breakpoint-sm) {
+    font-size: theme.$font-size-xs;
+    padding: 8px 10px;
+  }
 
   & > * {
     margin-right: 8px;
@@ -39,33 +48,16 @@
   }
 
   &:hover {
-    background-color: theme.$button-bg-color-hover;
-  }
-
-  &:active {
-    background-color: theme.$button-bg-color-pressed;
+    background-color: #E15F6D;
   }
 
   svg {
-    color: theme.$text1-color;
+    color: theme.$white;
   }
 }
 
 :local(.active) {
-  color: theme.$text5-color;
-  background-color: theme.$active-color;
-
-  svg {
-    color: theme.$text5-color;
-  }
-
-  &:hover {
-    background-color: theme.$active-color-hover;
-  }
-
-  &:active {
-    background-color: theme.$active-color-pressed;
-  }
+  background-color: #E15F6D;
 }
 
 :local(.separator) {
