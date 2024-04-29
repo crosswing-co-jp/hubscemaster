@@ -127,6 +127,10 @@
   }
 }
 
+:local(.home-page-info) {
+  color: black;
+}
+
 :local(.description) {
   display: flex;
   justify-content: space-between;
@@ -145,6 +149,10 @@
     width: 12px;
     height: 12px;
   }
+}
+
+:local(.home-page-description) {
+ color: theme.$darkgrey;
 }
 
 :local(.create-tile) {
