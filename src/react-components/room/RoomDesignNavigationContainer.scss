@@ -1,0 +1,70 @@
+@use "../styles/theme.scss";
+
+:local(.button) {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  color: theme.$white;
+  position: absolute;
+  left: 5px;
+  bottom: 0px;
+  padding: 13px 17px 4px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 1px solid var(--border1-color);
+  border-left: 1px solid var(--border1-color);
+  border-right: 1px solid var(--border1-color);
+
+  // @media(min-width: theme.$breakpoint-md) {
+  //   width: 100px;
+  //   height: 100px;
+  // }
+
+  @media(min-width: theme.$breakpoint-lg) {
+    left: 30px;
+  }
+}
+
+:local(.navigation-container-open-position) {
+  bottom: 300px;
+  
+  @media(min-width: theme.$breakpoint-lg) {
+    bottom: 300px;
+  }
+}
+
+
+:local(.button-text) {
+  font-size: 12px;
+  // line-height: 15px;
+  // margin-top: 12px;
+  // white-space: pre;
+
+  @media(min-width: theme.$breakpoint-lg) {
+    font-size: 14px;
+  }
+}
+
+:local(.navigation-container) {
+  background-color: rgba(255,255,255,.0588235294);
+  backdrop-filter: blur(34.3013000488px);
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 250px;
+  z-index: 1;
+  overflow-y: hidden;
+
+  // // @media(min-width: theme.$breakpoint-md) {
+  // //   width: 100px;
+  // //   height: 100px;
+  // // }
+
+  // @media(min-width: theme.$breakpoint-lg) {
+  //   left: 30px;
+  // }
+}
+
+:local(.media-tile-container) {
+  color: #0f1935;
+  padding: 15px 8px 0px 8px;
+}

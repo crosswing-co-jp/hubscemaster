@@ -50,7 +50,18 @@ function useThumbnail(entry, processThumbnailUrl) {
   return [thumbnailUrl, thumbnailWidth, thumbnailHeight];
 }
 
-function BaseTile({ as: TileComponent, className, name, description, tall, wide, isHomePage, children, ...rest }) {
+function BaseTile({
+  as: TileComponent,
+  className,
+  name,
+  description,
+  tall,
+  wide,
+  isHomePage,
+  showMoveButton,
+  children,
+  ...rest
+}) {
   let additionalProps;
 
   if (TileComponent === "div") {
@@ -68,13 +79,24 @@ function BaseTile({ as: TileComponent, className, name, description, tall, wide,
     >
       <div className={styles.thumbnailContainer}>{children}</div>
       {(name || description) && (
-        <div className={classNames(styles.info, isHomePage && styles.homePageInfo)}>
+        <div
+          className={classNames(
+            styles.info,
+            isHomePage && styles.homePageInfo,
+            showMoveButton && styles.roomDesignNavigationInfo
+          )}
+        >
           <b>{name}</b>
           {description && (
             <small className={classNames(styles.description, isHomePage && styles.homePageDescription)}>
               {description}
             </small>
           )}
+        </div>
+      )}
+      {showMoveButton && (
+        <div className={classNames(styles.info, isHomePage && styles.homePageInfo)}>
+          <span>移動する</span>
         </div>
       )}
     </TileComponent>
@@ -90,6 +112,7 @@ BaseTile.propTypes = {
   tall: PropTypes.bool,
   wide: PropTypes.bool,
   isHomePage: PropTypes.bool,
+  showMoveButton: PropTypes.bool,
 };
 
 BaseTile.defaultProps = {
@@ -134,6 +157,7 @@ export function MediaTile({
   onCopy,
   onInfo,
   isHomePage,
+  showMoveButton,
   ...rest
 }) {
   const intl = useIntl();
@@ -182,6 +206,7 @@ export function MediaTile({
         </>
       }
       isHomePage={isHomePage}
+      showMoveButton={showMoveButton}
       {...rest}
     >
       <a className={styles.thumbnailLink} href={entry.url} rel="noreferrer noopener" onClick={onClick}>
@@ -281,4 +306,5 @@ MediaTile.propTypes = {
   onCopy: PropTypes.func,
   onInfo: PropTypes.func,
   isHomePage: PropTypes.bool,
+  showMoveButton: PropTypes.bool,
 };

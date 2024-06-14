@@ -73,6 +73,7 @@ import { ReactComponent as InviteIcon } from "./icons/Invite.svg";
 import hubsLogo from "../assets/images/hubs-logo.png";
 import { PeopleSidebarContainer, userFromPresence } from "./room/PeopleSidebarContainer";
 import { ObjectListProvider } from "./room/hooks/useObjectList";
+import { AuthContextProvider } from "./auth/AuthContext";
 import { ObjectsSidebarContainer } from "./room/ObjectsSidebarContainer";
 import { ObjectMenuContainer } from "./room/ObjectMenuContainer";
 import { useCssBreakpoints } from "react-use-css-breakpoints";
@@ -94,6 +95,7 @@ import { ExitReason } from "./room/ExitedRoomScreen";
 import { UserProfileSidebarContainer } from "./room/UserProfileSidebarContainer";
 import { OfficialSiteLinksButtonContainer } from "./room/OfficialSiteLinksButtonContainer";
 import { OfficialSiteLinksSidebarContainer } from "./room/OfficialSiteLinksSidebarContainer";
+import { RoomDesignNavigationContainer } from "./room/RoomDesignNavigationContainer";
 import { CloseRoomModal } from "./room/CloseRoomModal";
 import { WebVRUnsupportedModal } from "./room/WebVRUnsupportedModal";
 import { TweetModalContainer } from "./room/TweetModalContainer";
@@ -191,6 +193,7 @@ class UIRoot extends Component {
     linkCodeCancel: null,
     miniInviteActivated: false,
     showOfficialSiteLinks: false,
+    showRoomDesignNavigation: false,
 
     didConnectToNetworkedScene: false,
     noMoreLoadingUpdates: false,
@@ -1419,13 +1422,21 @@ class UIRoot extends Component {
                       <OfficialSiteLinksButtonContainer
                         onClick={() => this.setState({ showOfficialSiteLinks: true })}
                         appName={appName}
-                        />
-                        )}
+                      />
+                    )}
                     {this.state.showOfficialSiteLinks && (
                       <OfficialSiteLinksSidebarContainer
                         onClose={() => this.setState({ showOfficialSiteLinks: false })}
                         appName={appName}
                       />
+                    )}
+                    {!this.state.showOfficialSiteLinks && (
+                      <AuthContextProvider store={this.props.store}>
+                        <RoomDesignNavigationContainer
+                          showRoomDesignNavigation={this.state.showRoomDesignNavigation}
+                          onClick={() => this.setState({ showRoomDesignNavigation: !this.state.showRoomDesignNavigation })}
+                        />
+                      </AuthContextProvider>
                     )}
                     {(!this.props.selectedObject ||
                       (this.props.breakpoint !== "sm" && this.props.breakpoint !== "md")) && (

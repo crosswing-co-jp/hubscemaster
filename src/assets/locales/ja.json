@@ -711,5 +711,6 @@
   "webvr-unsupported-modal.webvr-rocks-link": "実験的なVRをサポートしているブラウザの一覧は <a>WebVR Rocks</a> を確認してください。",
   "whats-new-page.title": "新着情報",
   "official-site-links.show-button": "{appName}\n関連サイトへ",
-  "official-site-links.sidebar-title": "{appName} 関連サイト"
+  "official-site-links.sidebar-title": "{appName} 関連サイト",
+  "room-design-navigation.button": "他デザインのお部屋を見る"
 }
