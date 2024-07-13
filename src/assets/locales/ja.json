@@ -310,7 +310,7 @@
   "media-tile.action.room-info": "ルーム情報",
   "media-tile.action.show-similar-avatars": "類似のアバターを表示する",
   "media-tile.joined-room": "参加 {relativeTime}",
-  "mic-setup-modal.check-mic": "{appName}では迷惑行為防止の観点により、マイク機能を利用不可とさせていただいております。ミュートでご入室ください。",
+  "mic-setup-modal.check-mic": "音声通話機能をご利用される方は、ブラウザのマイクへのアクセス許可をONにし「ミュート」を外してください。",
   "mic-setup-modal.enter-room-button": "入室",
   "mic-setup-modal.error-description": "Hubsで会話するためには、マイクの使用を許可する必要があります。",
   "mic-setup-modal.error-title": "マイクアクセスが拒否されました。",
